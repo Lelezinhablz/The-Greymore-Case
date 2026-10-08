@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bemtvdaopkweb"]
+
+[ext_resource type="Script" uid="uid://8ob77he0tcym" path="res://scripts/aim_target.gd" id="1_4cmic"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_53kwp"]
+
+[node name="AimTarget" type="Area3D" unique_id=119286305 groups=["aim_targets"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_4cmic")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1147592877]
+shape = SubResource("SphereShape3D_53kwp")
+debug_color = Color(0.9159247, 0.2891094, 0, 0.41960785)

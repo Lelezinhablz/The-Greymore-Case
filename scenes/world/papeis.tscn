@@ -1,0 +1,231 @@
+[gd_scene format=4 uid="uid://dir0xojpyhy4f"]
+
+[ext_resource type="Texture2D" uid="uid://b8n7ufktwreyf" path="res://assets/mapa/PAPEIS_Image_36.jpg" id="1_mf13s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkakr"]
+resource_name = "Stack_of_Papers"
+cull_mode = 2
+albedo_texture = ExtResource("1_mf13s")
+roughness = 0.88686293
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rcuqu"]
+_surfaces = [{
+"aabb": AABB(-7.5497203, 3.3183699, -4.496182, 6.1266975, 2.566286, 7.5748606),
+"format": 34896613377,
+"index_count": 51,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAACAAQAAAAFAAEABgAFAAAABwAIAAkACQAKAAcACQALAAoABwAKAAwABwANAAgABwAMAA0ADQAOAAgADQAMAA4ADwAQABEAEgATABQAEgAVABMA"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("T/AfQ9ruAAD//4za2vIAAP//jNra7gAAxZX//9ryAADFlf//2u4AAE/wH0Pa8gAAFoaSaNruAAC1/LlYFvMAAKWOMu4W8wAAl5ATVBbzAAC1/LlY//8AAJeQE1T//wAAwvrY8v//AADC+tjyFvMAAKWOMu7//wAASj82tQAAAAAAAHATAAQAAAAAcBMAAAAAIzG6tjsEAAC7BQAAJBEAALsFAAA7BAAAIzG6tiQRAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5njcd"]
+resource_name = "PAPEIS_Stack of Papers_Stack of Papers_0"
+_surfaces = [{
+"aabb": AABB(-7.5497203, 3.3183699, -4.496182, 6.1266975, 2.566286, 7.5748606),
+"attribute_data": PackedByteArray("AAAA/1v9j0OysrL/xwK5NAAAAP/HAo9Dtra2/1v9uTQAAAD/a/1oQ7Kysv/XApI0AAAA/9cCaEOysrL/a/2SNAAAAP+r/Y9Dtra2/xcDuTQAAAD/FwOPQwAAAP9b/Y9DAAAA/8cCj0MAAAD/1wJoQwAAAP+UNXV+AAAA/78CSrEAAAD/lDVKsQAAAP+/AnV+AAAA/wAANVeysrL///8aiAAAAP///zVXtLS0/wAAGogAAAD/AAA1V7Kysv///xqIAAAA////NVeysrL/AAAaiAAAAP///zVXtLS0/wAAGogAAAD/AAA1V7S0tP///xqIAAAA/2v9aEOysrL/1wKSNAAAAP/XAmhDAAAA/wAANVeysrL///8aiAAAAP///zVXsrKy/wAAGog="),
+"format": 34896613407,
+"index_count": 51,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAMAA0ADgAPABAADgARAA8AEgATABQAEgAVABMAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAIQAiACMAIQAkACIA"),
+"material": SubResource("StandardMaterial3D_pkakr"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 37,
+"vertex_data": PackedByteArray("T/AfQ9ruwCT//4za2vLAJP//jNra7sAkT/AfQ9rywCT//4za2u7HP8WV///a8sc/xZX//9ruxz///4za2vLHPxaGkmja7jgET/AfQ9ryOARP8B9D2u44BE/wH0Pa7v////+M2tru///Flf//2u7//7X8uVgW8wAApY4y7hbzAACXkBNUFvMAAML62PIW8wAAtfy5WBbz9CnC+tjy///0KcL62PIW8/Qptfy5WP//9CnC+tjyFvOEAKWOMu7//4QApY4y7hbzhADC+tjy//+EAJeQE1QW83r/tfy5WP//ev+1/LlYFvN6/5eQE1T//3r/Sj82tQAAgTkAAHATAASBOQAAcBMAAIE5IzG6tjsEph27BQAAJBGmHbsFAAA7BKYdIzG6tiQRph0BpABSAaQAUgGkAFIBpABSmu/Nd5rvzXea7813mu/Nd0PCdvtDwnb7Q8J2+8pHycfKR8nHykfJx/bA9kD2wPZA9sD2QPbA9kAXK9ApFyvQKRcr0CkXK9ApbH+1v2x/tb9sf7W/bH+1v5KASUCSgElAkoBJQJKASUA+4n+7PuJ/uz7if7sgY4+xIGOPsSBjj7EgY4+x")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rcuqu")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ioovo"]
+_surfaces = [{
+"aabb": AABB(-3.0753703, 6.2416267, 3.665747, 3.5077515, 0.011836052, 3.1312969),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD//0IDAACglf//ktcAAO6R//8AAAAAsQP8/9TaAABLWwIAiSkAAP//AgDG7gAAeewCAFEYAADRbgAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2g6ma"]
+resource_name = "PAPEIS_Stack of Papers_Stack of Papers_0_001"
+_surfaces = [{
+"aabb": AABB(-3.0753703, 6.2416267, 3.665747, 3.5077515, 0.011836052, 3.1312969),
+"attribute_data": PackedByteArray("tLS0/9YF95GysrL/KFUT/7a2tv8oVXKSsrKy/9YFmP60tLT/1gX3kbKysv8oVRP/tra2/yhVcpKysrL/1gWY/g=="),
+"format": 34896613407,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_pkakr"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD//0ID/j+glf//ktf+P+6R//8AAP4/sQP8/9Ta/j9LWwIAiSnfP///AgDG7t8/eewCAFEY3z/RbgAA///fPzcDY343A2N+NwNjfjcDY37VDJR51QyUedUMlHnVDJR5")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ioovo")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jwrff"]
+_surfaces = [{
+"aabb": AABB(-4.425982, 3.6002393, 2.5714245, 3.327202, 2.397946, 0.5304065),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAABAAMABQADAAAABAADAAUABgAEAAUABwAIAAkABwAKAAgACwAIAAoACwAKAAwADQAOAA8ADQAQAA4AEQASABMAEQAUABIAFQAWABcAFQAYABYAGQAaABsAGQAcABoA"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 29,
+"vertex_data": PackedByteArray("Ksq+KSc5AAByI+DzJzkAAAznzMsnOQAAkAbSUSc5AAByI+DzAAAAAJAG0lEAAAAAKsq+KQAAAAD+4NxA0vQAAFIW0+DS9AAAaN3N5dL0AADoGeI70vQAAFIW0+B1PAAA6BniO3U8AAAAAPmI//8AABv7BXf//wAAx1UAAP//AABUpf////8AABQKm7XiWgAAB/FjSuJaAAAKMLcV4loAABDLR+riWgAA///wTpngAACwF7i2meAAAPnXP+6Z4AAAtT9pF5ngAAAv3LMpaJ8AAPsZUdVonwAABeGbzmifAAAkFWkwaJ8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gd2j0"]
+resource_name = "PAPEIS_Stack of Papers_Stack of Papers_0_004"
+_surfaces = [{
+"aabb": AABB(-4.425982, 3.6002393, 2.5714245, 3.327202, 2.397946, 0.5304065),
+"attribute_data": PackedByteArray("tra2/+ydUJSysrL/+ekg/rKysv/56VCUtLS0/+ydIP4AAAD/d/2PQ7S0tP/jArk0AAAA/+MCj0OysrL/d/25NAAAAP+r/Y9DtLS0/6v9uTS2trb/FwO5NAAAAP9b/Y9DAAAA/9cCaEMAAAD/4wKPQ7S0tP/xBouSsrKy/x5Um/6ysrL/HlSLkrS0tP/xBpv+AAAA////NVe0tLT/AAAaiAAAAP8AADVXsrKy////Goi0tLT/1gX3kbKysv8oVRP/tra2/yhVcpKysrL/1gWY/rKysv/inQWXtLS0/xPqlv62trb/E+rDlrKysv/indj+tLS0/+KdBZe0tLT/E+qW/rKysv8T6sOWtra2/+Kd2P60tLT/4p0Fl7Kysv8T6pb+srKy/xPqw5a0tLT/4p3Y/g=="),
+"format": 34896613407,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAMAA0ADgAPABAADgARAA8AEgATABQAEgAVABMAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAHgAhAB8AIgAjACQAIgAlACMA"),
+"material": SubResource("StandardMaterial3D_pkakr"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("Ksq+KSc54ElyI+DzJzngSQznzMsnOeBJkAbSUSc54ElyI+DzAAAeMJAG0lEnOR4wkAbSUQAAHjByI+DzJzkeMJAG0lEAADgEkAbSUSc5OAQqyr4pJzk4BCrKvikAAAAAciPg8wAAAACQBtJRAAAAAP7g3EDS9MU+UhbT4NL0xT5o3c3l0vTFPugZ4jvS9MU+UhbT4HU8CtboGeI70vQK1ugZ4jt1PArWUhbT4NL0CtYAAPmI///lXBv7BXf//+Vcx1UAAP//5VxUpf/////lXBQKm7XiWiBNB/FjSuJaIE0KMLcV4logTRDLR+riWiBN///wTpngLDKwF7i2meAsMvnXP+6Z4CwytT9pF5ngLDIv3LMpaJ98QfsZUdVon3xBBeGbzmiffEEkFWkwaJ98Qf/////////////////////x2BvO8dgbzvHYG87x2BvOQ8J2+0PCdvtDwnb7PPc8dzz3PHc89zx3/////////////////////+fULtbn1C7W59Qu1ufULtb/f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f///////////////////////////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jwrff")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qmnqa"]
+_surfaces = [{
+"aabb": AABB(6.1417193, -1.6211773, 2.5693927, 2.5045505, 2.40199, 1.0421844),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAAEAAEAAgADAAUAAgAFAAAAAAAGAAQAAAAFAAYABAAHAAEAAQAHAAMABAAGAAcABQADAAcABQAHAAYACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEA"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("yRkHFQAAAAA15i7qAAAAAMkZLuoAAAAAyRku6v//AAA15gcVAAAAAMkZBxX//wAANeYHFf//AAA15i7q//8AAHsMRBEGsQAAg/P60waxAADH1wAABrEAADcoPuUGsQAALAiwIciCAADS94XdyIIAAJDSfQrIggAAby239MiCAADLIssPwC4AADPdau/ALgAAxe67GsAuAAA6EXnkwC4AABn3Hd4U9QAA5QgYIRT1AACKLE70FPUAAHTT5woU9QAASuKM7NbGAAC0HagS1sYAAPMVuOfWxgAAC+p8F9bGAABF2///znIAALkkUR7OcgAAgQ/I8s5yAAB98IcrznIAAP//i9OgUQAAAABIJqBRAAA+OJD2oFEAAMDHQwOgUQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_goy1n"]
+resource_name = "PAPEIS_Stack of Papers_Stack of Papers_0_005"
+_surfaces = [{
+"aabb": AABB(6.1417193, -1.6211773, 2.5693927, 2.5045505, 2.40199, 1.0421844),
+"attribute_data": PackedByteArray("AAAA/5Q1dX4AAAD/vwJKsQAAAP+UNUqxAAAA/78CdX62trb/x542lq+vr/8f6pP8srKy/x/qNpa0tLT/x56T/AAAAP///7QCtLS0/wAAGogAAAD/AAC0Aq+vr////xqIAAAA/wAAtAKysrL///8aiAAAAP///7QCtra2/wAAGogAAAD/AAC0Aq+vr////xqIAAAA////tAKysrL/AAAaiAAAAP///7QCtra2/wAAGogAAAD/AAC0ArS0tP///xqItra2/9SedpWvr6//4+rt/bS0tP/j6oKVtLS0/9Se4v22trb/1gX3ka+vr/8oVRP/tLS0/yhVcpK0tLT/1gWY/ra2tv/inQWXsLCw/xPqlv6ysrL/E+rDlrS0tP/indj+r6+v/9SedpW2trb/4+rt/bS0tP/j6oKVtLS0/9Se4v2vr6//1gX3kba2tv8oVRP/tLS0/yhVcpKysrL/1gWY/q+vr//inQWXtra2/xPqlv60tLT/E+rDlrKysv/indj+r6+v/+KdBZe2trb/E+qW/rS0tP8T6sOWtLS0/+Kd2P4="),
+"format": 34896613407,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEA"),
+"material": SubResource("StandardMaterial3D_pkakr"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("yRkHFQAAAAA15i7qAAAAAMkZLuoAAAAANeYHFQAAAADJGQcV///+fzXmLur///5/NeYHFf///n/JGS7q///+fzXmLuoAAP+/yRku6v///7/JGS7qAAD/vzXmLur///+/yRkHFQAA/z815gcV////PzXmBxUAAP8/yRkHFf///z815gcVAACqKjXmLur//6oqNeYu6gAAqio15gcV//+qKskZLuoAAFTVyRkHFf//VNXJGQcVAABU1ckZLur//1TVewxEEQaxq3yD8/rTBrGrfMfXAAAGsat8Nyg+5Qaxq3wsCLAhyIJbe9L3hd3Iglt7kNJ9CsiCW3tvLbf0yIJbe8siyw/ALs19M91q78AuzX3F7rsawC7NfToReeTALs19Gfcd3hT1SATlCBghFPVIBIosTvQU9UgEdNPnChT1SARK4ozs1sa+ALQdqBLWxr4A8xW459bGvgAL6nwX1sa+AEXb///OcqECuSRRHs5yoQKBD8jyznKhAn3whyvOcqEC//+L06BRrwYAAEgmoFGvBj44kPagUa8GwMdDA6BRrwb/f////3////9/////f////3////9/////f////3///////3////9/////f////38AAP9/AAD/fwAA/38AAP9/qiqqKqoqqiqqKqoqqiqqKlTVVNVU1VTVVNVU1VTVVNX/f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f////////////////////////////////////////////3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qmnqa")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i5f4w"]
+_surfaces = [{
+"aabb": AABB(-0.23116583, -8.39554, -4.498214, 3.482206, 2.3864708, 1.0421844),
+"format": 34896613377,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAAEAAEAAgADAAUAAgAFAAAAAAAGAAQAAAAFAAYABAAHAAEAAQAHAAMABAAGAAcABQADAAcABQAHAAYACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEA"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("FgccmgAAAACs8YheAAAAAIizx/QAAAAAiLPH9P//AAA5Rd0DAAAAABYHHJr//wAAOUXdA///AACs8Yhe//8AAAAASqIGsQAAwONPSwaxAADTL4YFBrEAAO2zE+gGsQAA+QtwrMiCAADI7DRMyIIAALo20g3IggAAB8LS6siCAACXBUORwC4AACvzYWfALgAAcEwAAMAuAABRrKX4wC4AAArt/EwU9QAAtwuoqxT1AABswU3rFPUAAFU3Vw0U9QAAZfJrYtbGAABcBjmW1sYAAGGwjfbWxgAAYUgXAtbGAAD//9pvznIAAO0RBpbOcgAAXrf//85yAACNWuEFznIAADLn80GgUQAANQ1ntKBRAADPxqnjoFEAAJgtshKgUQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_q2jye"]
+resource_name = "PAPEIS_Stack of Papers_Stack of Papers_0_007"
+_surfaces = [{
+"aabb": AABB(-0.23116583, -8.39554, -4.498214, 3.482206, 2.3864708, 1.0421844),
+"attribute_data": PackedByteArray("AAAA/5Q1dX4AAAD/vwJKsQAAAP+UNUqxAAAA/78CdX62trb/x542lq+vr/8f6pP8srKy/x/qNpa0tLT/x56T/AAAAP///7QCtLS0/wAAGogAAAD/AAC0Aq+vr////xqIAAAA/wAAtAKysrL///8aiAAAAP///7QCtra2/wAAGogAAAD/AAC0Aq+vr////xqIAAAA////tAKysrL/AAAaiAAAAP///7QCtra2/wAAGogAAAD/AAC0ArS0tP///xqItra2/9SedpWvr6//4+rt/bS0tP/j6oKVtLS0/9Se4v22trb/1gX3ka+vr/8oVRP/tLS0/yhVcpK0tLT/1gWY/ra2tv/inQWXsLCw/xPqlv6ysrL/E+rDlrS0tP/indj+r6+v/9SedpW2trb/4+rt/bS0tP/j6oKVtLS0/9Se4v2vr6//1gX3kba2tv8oVRP/tLS0/yhVcpKysrL/1gWY/q+vr//inQWXtra2/xPqlv60tLT/E+rDlrKysv/indj+r6+v/+KdBZe2trb/E+qW/rS0tP8T6sOWtLS0/+Kd2P4="),
+"format": 34896613407,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEA"),
+"material": SubResource("StandardMaterial3D_pkakr"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("FgccmgAAAACs8YheAAAAAIizx/QAAAAAOUXdAwAAAAAWBxya//8eVqzxiF7//x5WOUXdA///HlaIs8f0//8eVqzxiF4AAPDJiLPH9P//8MmIs8f0AADwyazxiF7///DJFgccmgAADjY5Rd0D//8ONjlF3QMAAA42Fgccmv//DjY5Rd0DAADKPqzxiF7//8o+rPGIXgAAyj45Rd0D///KPoizx/QAADTBFgccmv//NMEWBxyaAAA0wYizx/T//zTBAABKogaxCFHA409LBrEIUdMvhgUGsQhR7bMT6AaxCFH5C3CsyIL6TsjsNEzIgvpOujbSDciC+k4HwtLqyIL6TpcFQ5HALlhZK/NhZ8AuWFlwTAAAwC5YWVGspfjALlhZCu38TBT1dDC3C6irFPV0MGzBTesU9XQwVTdXDRT1dDBl8mti1sbFKFwGOZbWxsUoYbCN9tbGxShhSBcC1sbFKP//2m/OcgYm7REGls5yBiZet///znIGJo1a4QXOcgYmMufzQaBRQDQ1DWe0oFFANM/GqeOgUUA0mC2yEqBRQDQurs/RLq7P0S6uz9Eurs/R/3//f/9//3//f/9//3//fx68D14evA9eHrwPXh68D17gQ++h4EPvoeBD76HgQ++hkRDcXpEQ3F6RENxekRDcXm3vIqFt7yKhbe8ioW3vIqH/f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//////////////////////////////////////////////////////////////////////////////////////")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i5f4w")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dcyfa"]
+_surfaces = [{
+"aabb": AABB(4.3828144, -8.657102, -4.4444804, 1.565062, 0.7353997, 0.5653858),
+"format": 34896613377,
+"index_count": 192,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgADAAAABgAHAAMACAAAAAQACAAGAAAACQAEAAUACQAFAAoACwAJAAoACwAKAAwADQAJAAsADgAEAAkADQAOAAkADgAIAAQADwAOAA0ADwAQAA4AEAAIAA4AEQAQAA8AEQASABAAEAATAAgAEgATABAAEwAGAAgAEgAUABMAEwAVAAYAFAAVABMAFQAHAAYAFAAWABUAFQAXAAcAFgAXABUAFgAYABcAGQAaABsAGQAcABoAHQAZABsAHQAbAB4AHwAcABkAHwAgABwAIQAZAB0AIQAfABkAIgAdAB4AIgAeACMAJAAiACMAJAAjACUAJgAiACQAJwAdACIAJgAnACIAJwAhAB0AKAAnACYAKAApACcAKQAhACcAKgApACgAKgArACkAKQAsACEAKwAsACkALAAfACEAKwAtACwALAAuAB8ALQAuACwALgAgAB8ALQAvAC4ALgAwACAALwAwAC4ALwAxADAA"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 50,
+"vertex_data": PackedByteArray("hTOujGcqAACLOLlTjPMAAHEWVjcgSwAAuR8AALO2AAAsQk07XiEAAAkRDyz8gQAAfwOne/Y0AABMIikCDiUAAH0IjCjTPwAAtDi2KAGAAABbG9RVAAAAAH0f4Wd/7wAAIwL+lH1vAADwRbxviTMAAJYrkCRmQQAAa0qYb0ayAAARMGskIsAAAKYd2Z8UYgAATAOtVPBvAAAkArorz70AAMY30T14dAAAAkgRcrmxAABFKvrAgnMAALwdC0GTpgAAAAD0j1xoAAA8z1TZbikAAMDOX5j//wAASOY+hEdmAAC0t3XtJsMAAP//NXU0FAAAWOwOfzyfAACnuZqYuGIAAA631OiBMQAAa/p4yaVpAADb9JlylHYAAJbVhZJsGgAA9uJ1yJb2AADysQKxbpoAAKXoktyEIAAAUPTLk89IAACO9Uj1+JIAAI/yV3NCuwAAOb2u1bByAADgz5GH+poAAM/7Z7nu5QAAifsrtUJsAADcusSvrtsAAPHsLp49gAAAQ7j//3eqAABX6mjuBk8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mhmi4"]
+resource_name = "PAPEIS_Stack of Papers_Stack of Papers_0_008"
+_surfaces = [{
+"aabb": AABB(4.3828144, -8.657102, -4.4444804, 1.565062, 0.7353997, 0.5653858),
+"attribute_data": PackedByteArray("/////8KL+7v/////v3xd/f////9fZobO/////yGi0+r/////8ICQ8/////8jaHG+/////3OJtM7/////oF9N4/////+zbK7p/////8aN0ND/////RXnOxv////9Xh6/2/////x1XvMj/////m2C53/////8/drnf/////5tgvMj/////fHbY3/////+bYK/2/////89Trun/////m2Cc0f////8WZnva/////xqmDML/////uo9c4/////92fCu5/////0V5zsb/////UGaDtf////9QZn7T/////8aN0ND/////JYvf6/////8horzI/////8KLvMj/////haGOyv////+CeUS5/////x1XftP/////AHl/+v////+fV87G/////1+Yb8//////z1Mfz/////+ydWGz/////3x2Lev/////AHl/+v////8/dmi3/////yKYat7/////HVd+0//////1UCTc/////0V5zsb/////iF1Euf////+zbK7p/////5tgMfD/////wou8yP////+bYLzI/////yWL3+v/////m2Cc0f////+6j5Dz/////5tgr/b/////Fmay1/////+bYK/2/////yWLtM7/////m2DQ0P////+6j5Dz/////5tgg7X/////X2aGzv////+bYOHf/////8KL+7v/////wov7u/////+/fF39/////19mhs7/////IaLT6v/////wgJDz/////yNocb7/////c4m0zv////+gX03j/////7Nsrun/////xo3Q0P////9Fec7G/////1eHr/b/////HVe8yP////+bYLnf/////z92ud//////m2C8yP////98dtjf/////5tgr/b/////z1Ou6f////+bYJzR/////xZme9r/////GqYMwv////+6j1zj/////3Z8K7n/////RXnOxv////9QZoO1/////1BmftP/////xo3Q0P////8li9/r/////yGivMj/////wou8yP////+FoY7K/////4J5RLn/////HVd+0/////8AeX/6/////59Xzsb/////X5hvz//////PUx/P/////7J1YbP/////fHYt6/////8AeX/6/////z92aLf/////Iphq3v////8dV37T//////VQJNz/////RXnOxv////+IXUS5/////7Nsrun/////m2Ax8P/////Ci7zI/////5tgvMj/////JYvf6/////+bYJzR/////7qPkPP/////m2Cv9v////8WZrLX/////5tgr/b/////JYu0zv////+bYNDQ/////7qPkPP/////m2CDtf////9fZobO/////5tg4d//////wov7uw=="),
+"format": 34896613407,
+"index_count": 192,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdAB3AHUAeAB5AHoAeAB7AHkAfAB9AH4AfAB/AH0A"),
+"material": SubResource("StandardMaterial3D_pkakr"),
+"name": "Stack_of_Papers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 128,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dcyfa")
+
+[node name="PAPEIS" type="Node3D" unique_id=1084980893]
+
+[node name="Stack of Papers_Stack of Papers_0" type="MeshInstance3D" parent="." unique_id=1926467011]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.9207265e-06, -1.139164, -5.01409e-06)
+mesh = SubResource("ArrayMesh_5njcd")
+
+[node name="NEWS_NEWS_0" type="Node3D" parent="." unique_id=1470937001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9105723e-06, 0, 15.914164)
+
+[node name="Stack of Papers_Stack of Papers_0_001" type="MeshInstance3D" parent="." unique_id=88053921]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.9207265e-06, -1.139164, -5.01409e-06)
+mesh = SubResource("ArrayMesh_2g6ma")
+
+[node name="Stack of Papers_Stack of Papers_0_004" type="MeshInstance3D" parent="." unique_id=1667171794]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.9207265e-06, -1.139164, -5.01409e-06)
+mesh = SubResource("ArrayMesh_gd2j0")
+
+[node name="Stack of Papers_Stack of Papers_0_005" type="MeshInstance3D" parent="." unique_id=232910879]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.9207265e-06, -1.139164, -5.01409e-06)
+mesh = SubResource("ArrayMesh_goy1n")
+
+[node name="Stack of Papers_Stack of Papers_0_007" type="MeshInstance3D" parent="." unique_id=2105418015]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.9207265e-06, -1.139164, -5.01409e-06)
+mesh = SubResource("ArrayMesh_q2jye")
+
+[node name="Stack of Papers_Stack of Papers_0_008" type="MeshInstance3D" parent="." unique_id=1589811807]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.9207265e-06, -1.139164, -5.01409e-06)
+mesh = SubResource("ArrayMesh_mhmi4")

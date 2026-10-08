@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dk870i51tsxec"]
+
+[ext_resource type="Script" uid="uid://bamh8bof3th77" path="res://scripts/re_camera.gd" id="1_qc1xt"]
+
+[node name="ReCamera" type="Camera3D" unique_id=1567000545 groups=["cameras"]]
+transform = Transform3D(-1, -1.05026965e-08, 8.6789605e-08, 0, 0.9927573, 0.12013684, -8.742278e-08, 0.12013684, -0.9927573, 0, 0, 0)
+script = ExtResource("1_qc1xt")
+
+[node name="Trigger" type="Area3D" parent="." unique_id=1894283272 groups=["cameras"]]
+transform = Transform3D(-1, -1.0502697e-08, 8.678961e-08, 0, 0.9927574, 0.12013685, -8.742278e-08, 0.12013685, -0.9927574, 0, 0, 0)
+top_level = true
+collision_layer = 0
+collision_mask = 6
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
