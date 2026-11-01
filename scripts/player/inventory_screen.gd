@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var item_mount = $UI_Elements/SubViewportContainer/SubViewport/ItemMount
 @onready var triangulo_branco = $UI_Elements/SubViewportContainer/TrianguloBranco
 @onready var triangulo_branco_2 = $UI_Elements/SubViewportContainer/TrianguloBranco2
+@onready var equiped_item: Label = $UI_Elements/VBoxContainer/EquipedItem
 
 @export var spin_speed: float = 0.5
 

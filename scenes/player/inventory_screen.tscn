@@ -358,6 +358,66 @@ label_settings = SubResource("LabelSettings_l7gae")
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="CarouselItemInfo2" type="VBoxContainer" parent="UI_Elements" unique_id=1598622323]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -119.0
+offset_right = -55.0
+offset_bottom = 218.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Comandos" type="Label" parent="UI_Elements/CarouselItemInfo2" unique_id=2089623174]
+layout_mode = 2
+text = "[E] Para equipar
+[U] Para usar"
+label_settings = SubResource("LabelSettings_l7gae")
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI_Elements" unique_id=1966995758]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -394.0
+offset_top = -345.0
+offset_right = -83.0
+offset_bottom = -245.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="EquipadoAtual" type="Label" parent="UI_Elements/VBoxContainer" unique_id=1620519801]
+layout_mode = 2
+text = "Item equipado atualmente:"
+label_settings = SubResource("LabelSettings_l7gae")
+horizontal_alignment = 1
+autowrap_mode = 3
+autowrap_trim_flags = 128
+
+[node name="HSeparator" type="HSeparator" parent="UI_Elements/VBoxContainer" unique_id=203080858]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_l7gae")
+
+[node name="EquipedItem" type="Label" parent="UI_Elements/VBoxContainer" unique_id=816519859]
+layout_mode = 2
+text = "Machado"
+label_settings = SubResource("LabelSettings_l7gae")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator2" type="HSeparator" parent="UI_Elements/VBoxContainer" unique_id=1513537558]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_l7gae")
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="UI_Elements" unique_id=753386947]
 layout_mode = 1
 anchors_preset = 8

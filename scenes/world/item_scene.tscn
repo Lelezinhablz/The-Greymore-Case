@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cwwwgs1bgj6sk" path="res://scenes/player/player.tscn" id="2_udi83"]
 [ext_resource type="Script" uid="uid://8ob77he0tcym" path="res://scripts/player/aim_target.gd" id="3_3dfk6"]
 [ext_resource type="PackedScene" uid="uid://cys4ti7ux3d8x" path="res://scenes/Itens/flashlight_pickup.tscn" id="5_3dfk6"]
+[ext_resource type="PackedScene" uid="uid://bvrojd4c0cayy" path="res://scenes/Itens/cure_pickup.tscn" id="6_0kvq8"]
+[ext_resource type="Script" uid="uid://b10eatxywoqqv" path="res://scripts/interaction/dialogue_interactable.gd" id="7_hqg7e"]
+[ext_resource type="Resource" uid="uid://cc86entqvq1r5" path="res://dialogues/test.dialogue" id="8_8io75"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3dfk6"]
 panorama = ExtResource("1_udi83")
@@ -50,6 +53,16 @@ points = PackedVector3Array(-0.5, -2.673767, -8.2246475, 0.5, -2.673767, -8.2246
 [sub_resource type="SphereShape3D" id="SphereShape3D_53kwp"]
 radius = 0.85057926
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvm45"]
+albedo_color = Color(0.654902, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8io75"]
+material = SubResource("StandardMaterial3D_wvm45")
+size = Vector3(0.44281006, 0.4552002, 0.4761963)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_71yop"]
+size = Vector3(1.3134155, 1.6157837, 1.4083204)
+
 [node name="PrototypeScene" type="Node3D" unique_id=1445105662]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1076755775]
@@ -59,10 +72,15 @@ transform = Transform3D(1, 0, 0, 0, 0.034442697, 0.9994067, 0, -0.9994067, 0.034
 environment = SubResource("Environment_ihl1i")
 
 [node name="ReCamera" parent="." unique_id=1567000545 instance=ExtResource("1_ihl1i")]
-transform = Transform3D(-0.64278764, -0.19826691, 0.7399421, 0, 0.9659259, 0.25881907, -0.76604444, 0.1663657, -0.6208852, 6.0508823, 1.8144948, -6.814502)
+transform = Transform3D(-4.245336e-08, -0.2381854, 0.9712197, -1.0411415e-08, 0.9712197, 0.2381854, -1, 0, -4.371139e-08, 7.1857533, 2.018373, -5.2353926)
+visible = false
+follow_player = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ReCamera/Trigger" parent_id_path=PackedInt32Array(1567000545, 1894283272) index="0" unique_id=603628169]
-transform = Transform3D(1, -8.881784e-16, 7.1054274e-15, 2.6645353e-15, 0.9999998, 0, 0, 0, 0.9999998, -0.020626545, -1.2772053, -3.6623254)
+[node name="Trigger" parent="ReCamera" index="0" unique_id=1894283272]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.8548975, 1.1348367, -6.0925198)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReCamera/Trigger" index="0" unique_id=603628169]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
 shape = SubResource("BoxShape3D_4vvcl")
 
 [node name="meshes" type="Node3D" parent="." unique_id=1663477988]
@@ -130,8 +148,33 @@ shape = SubResource("SphereShape3D_53kwp")
 [node name="itens" type="Node3D" parent="." unique_id=337647665]
 
 [node name="Flashlight" parent="itens" unique_id=741672454 instance=ExtResource("5_3dfk6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6524363, 0.9721947, -4.491539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0267916, 0.9721947, -4.491539)
+visible = false
 collision_mask = 0
 monitoring = false
+
+[node name="CurePickup" parent="itens" unique_id=1566345421 instance=ExtResource("6_0kvq8")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 1.0025735, 1.2517786, -4.3543844)
+visible = false
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+
+[node name="falar" type="Area3D" parent="." unique_id=1582875134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0710106, 0.91934264, -4.512509)
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+script = ExtResource("7_hqg7e")
+dialogue_resource = ExtResource("8_8io75")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="falar" unique_id=1789818742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03720236, 0.014820576, -0.035755634)
+mesh = SubResource("BoxMesh_8io75")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="falar" unique_id=368950027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033599854, -0.13101196, -0.036072254)
+shape = SubResource("BoxShape3D_71yop")
+debug_color = Color(0.9343123, 0.23511404, 0.27600113, 0.41960785)
 
 [editable path="ReCamera"]

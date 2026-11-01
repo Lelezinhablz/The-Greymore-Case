@@ -1,11 +1,11 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
-=> END
+Velho: Olá, forasteiro.
+Velho: Não é todo dia que vejo alguém por aqui.
+- Quem é você?
+	Velho: Ninguém importante.
+	=> END
+- Tem algo para me contar?
+	Velho: Cuidado com o porão.
+	=> END
+- Nada, tchau.
+	=> END

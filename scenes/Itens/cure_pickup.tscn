@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bvrojd4c0cayy"]
+
+[ext_resource type="Script" uid="uid://dpghqepdci244" path="res://scripts/interaction/item_pickup.gd" id="1_ad3kv"]
+[ext_resource type="PackedScene" uid="uid://crax8xnceat2g" path="res://scenes/Itens/cure_model.tscn" id="2_ad3kv"]
+[ext_resource type="Resource" uid="uid://dpychpv8tp8ek" path="res://Resource/cure.tres" id="2_yvsid"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_abdjv"]
+size = Vector3(0.9715923, 0.5278435, 1.0389091)
+
+[node name="CurePickup" type="Area3D" unique_id=1566345421 groups=["Collectable"]]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("1_ad3kv")
+item = ExtResource("2_yvsid")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=281028891]
+transform = Transform3D(0.9999513, 0, 0, 0, 1, 0, 0, 0, 0.9999513, -0.012105252, -0.063837856, -0.02586102)
+shape = SubResource("BoxShape3D_abdjv")
+
+[node name="Cure" parent="." unique_id=626187939 instance=ExtResource("2_ad3kv")]

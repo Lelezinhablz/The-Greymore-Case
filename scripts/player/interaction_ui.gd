@@ -18,6 +18,10 @@ func _ready():
 	manager.menu_index_changed.connect(_highlight)
 	manager.menu_closed.connect(_on_menu_closed)
 	manager.message_requested.connect(_on_message)
+	manager.dialogue_started.connect(func():
+		prompt_label.hide()
+		menu_box.hide()
+	)
 
 func _on_target_changed(target: Interactable) -> void:
 	if target and not manager.menu_open:

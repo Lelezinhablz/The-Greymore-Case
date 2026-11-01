@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dpychpv8tp8ek"]
+
+[ext_resource type="PackedScene" uid="uid://crax8xnceat2g" path="res://scenes/Itens/cure_model.tscn" id="1_iiupa"]
+[ext_resource type="Script" uid="uid://cn2mwpmhiq62a" path="res://scripts/globals/ItemResource.gd" id="2_tv0f0"]
+
+[resource]
+script = ExtResource("2_tv0f0")
+name = "Cura"
+description = "Posso usar isso para me curar"
+scene_3d = ExtResource("1_iiupa")
+metadata/_custom_type_script = "uid://cn2mwpmhiq62a"

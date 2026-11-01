@@ -22,6 +22,7 @@ func perform_action(action: String, manager: InteractionManager) -> bool:
 		"Pegar":
 			InventoryManager.add_item(item)
 			manager.message_requested.emit("Você pegou: " + item.name)
+			manager.forget(self)
 			queue_free()
 			return true
 		_:  # "Sair"
