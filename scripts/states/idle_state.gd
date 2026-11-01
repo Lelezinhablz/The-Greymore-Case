@@ -4,6 +4,8 @@ class_name IdleState
 @export var move_state: State
 @export var quick_turn_state: State
 @export var aim_state: State
+@export var interact_state: State
+@export var interaction_manager: InteractionManager
 @export var player: CharacterBody3D
 
 @export_group("QuickTurn Settings")
@@ -14,12 +16,14 @@ var last_tap_time: int = 0
 @export var anim_player: AnimationPlayer
 @export var default_blend_time := 0.5
 
-
-
 func enter_state() -> void:
 	anim_player.play("idle", default_blend_time)
 
 func physics_update(_delta: float) -> void:
+	if Input.is_action_just_pressed("interact") and interaction_manager.has_target():
+		switch_state.emit(interact_state)
+		return
+	
 	if Input.is_action_pressed("aim"):
 		switch_state.emit(aim_state)
 		return

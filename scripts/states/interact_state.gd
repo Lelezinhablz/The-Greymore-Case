@@ -2,17 +2,9 @@ extends State
 class_name InteractState
 
 @export var idle_state: State
-@export var player: CharacterBody3D 
-
-@export var idle_state: State
 @export var player: CharacterBody3D
 @export var interaction_manager: InteractionManager
 @export var anim_player: AnimationPlayer
-
-
-@export_group("QuickTurn Settings")
-@export var quick_turn_state: State
-@export var double_tap_window: int = 300
 
 func enter_state() -> void:
 	player.velocity = Vector3.ZERO

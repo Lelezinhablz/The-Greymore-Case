@@ -1,12 +1,11 @@
-[gd_scene format=4 uid="uid://n6ib6w3d57c"]
+[gd_scene format=4 uid="uid://bhqacvxavl1cu"]
 
-[ext_resource type="Texture2D" uid="uid://w3o1xc6mp1ni" path="res://assets/Exploration objects/Flashlight/Flashlight.png" id="1_52i85"]
-[ext_resource type="Script" uid="uid://tibwitph65q7" path="res://scripts/ItensScript.gd" id="1_l7fqb"]
+[ext_resource type="Texture2D" uid="uid://w3o1xc6mp1ni" path="res://assets/Exploration objects/Flashlight/Flashlight.png" id="1_g3n5u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tntxn"]
 resource_name = "Flashlight"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_52i85")
+albedo_texture = ExtResource("1_g3n5u")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
@@ -45,20 +44,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4l4qq")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_53kwp"]
-size = Vector3(1, 1, 0.9413452)
-
-[node name="Flashlight" type="Node3D" unique_id=1951229423 groups=["Collectable"]]
-script = ExtResource("1_l7fqb")
+[node name="Flashlight" type="Node3D" unique_id=1951229423]
 
 [node name="Flashlight" type="MeshInstance3D" parent="." unique_id=1365339193]
 transform = Transform3D(-3.4969108e-07, 8, -1.7763568e-14, -5.2800136, -2.3079673e-07, -6.010113, -6.010113, -2.6271036e-07, 5.2800136, 0, 0, 0)
 mesh = SubResource("ArrayMesh_v27bn")
-
-[node name="Pickup" type="Area3D" parent="." unique_id=753939883]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickup" unique_id=908849693]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006608814, 0, -9.1552734e-05)
-shape = SubResource("BoxShape3D_53kwp")
-
-[connection signal="body_shape_entered" from="Pickup" to="." method="_on_pickup_body_shape_entered"]

@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var triangulo_branco = $UI_Elements/SubViewportContainer/TrianguloBranco
 @onready var triangulo_branco_2 = $UI_Elements/SubViewportContainer/TrianguloBranco2
 
+@export var spin_speed: float = 0.5
+
 var current_3d_item = null
 var inventoryActive = false
 
@@ -52,7 +54,10 @@ func _process(delta):
 
 	if visible:
 		inventoryActive = true
-
+		
+		if current_3d_item:
+			current_3d_item.rotate_y(spin_speed * delta)
+		
 		if Input.is_action_just_pressed("ui_right"):
 			InventoryManager.next_item() 
 			
@@ -88,6 +93,7 @@ func update_display():
 	if item_data.scene_3d:
 		current_3d_item = item_data.scene_3d.instantiate()
 		item_mount.add_child(current_3d_item)
+		current_3d_item.rotation_degrees = item_data.initial_rotation
 	else:
 		print("ERRO: Não foi possível carregar a cena do item: ", item_data.scene_3d)
 	

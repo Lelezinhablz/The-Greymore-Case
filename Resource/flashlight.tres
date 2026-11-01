@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://e6xgloe5qth6"]
 
 [ext_resource type="Script" uid="uid://cn2mwpmhiq62a" path="res://scripts/globals/ItemResource.gd" id="1_1uyx1"]
-[ext_resource type="PackedScene" uid="uid://n6ib6w3d57c" path="res://scenes/Objects/flashlight.tscn" id="1_n05oi"]
+[ext_resource type="PackedScene" uid="uid://bhqacvxavl1cu" path="res://scenes/Itens/flashlight_model.tscn" id="1_n05oi"]
 
 [resource]
 script = ExtResource("1_1uyx1")

@@ -9,7 +9,8 @@
 [ext_resource type="Script" uid="uid://ds80s6yiqebvj" path="res://scripts/states/quick_turn_state.gd" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://b63dq3ufpw6ay" path="res://scripts/states/aim_state.gd" id="8_qek5x"]
 [ext_resource type="Script" uid="uid://c7xqyjslxnk4r" path="res://scripts/states/interact_state.gd" id="9_5gtgg"]
-[ext_resource type="Script" uid="uid://qropuoyvqwvx" path="res://scripts/interaction_manager.gd" id="10_h17s1"]
+[ext_resource type="Script" uid="uid://qropuoyvqwvx" path="res://scripts/interaction/interaction_manager.gd" id="10_h17s1"]
+[ext_resource type="PackedScene" uid="uid://cp785o270f8y5" path="res://scenes/player/interaction_ui.tscn" id="11_je7p5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8afob"]
 radius = 0.28857422
@@ -1087,7 +1088,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_53kwp"]
-size = Vector3(2.0108032, 1, 2.0042725)
+size = Vector3(2.0108032, 2.0581055, 2.0042725)
 
 [node name="Player" type="CharacterBody3D" unique_id=517306222]
 collision_layer = 2
@@ -1351,11 +1352,13 @@ script = ExtResource("4_75vfm")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://dywdapapk5xnn"
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=69433515 node_paths=PackedStringArray("move_state", "quick_turn_state", "aim_state", "player", "anim_player")]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=69433515 node_paths=PackedStringArray("move_state", "quick_turn_state", "aim_state", "interact_state", "interaction_manager", "player", "anim_player")]
 script = ExtResource("5_0owmy")
 move_state = NodePath("../Move")
 quick_turn_state = NodePath("../QuickTurn")
 aim_state = NodePath("../Aim")
+interact_state = NodePath("../Interact")
+interaction_manager = NodePath("../../InteractionManager")
 player = NodePath("../..")
 anim_player = NodePath("../../model/AnimationPlayer")
 default_blend_time = 0.2
@@ -1386,22 +1389,23 @@ anim_player = NodePath("../../model/AnimationPlayer")
 aiming_ray = NodePath("../../AimingRay")
 metadata/_custom_type_script = "uid://c5sqmomp8vshr"
 
-[node name="Interact" type="Node" parent="StateMachine" unique_id=1967881485]
+[node name="Interact" type="Node" parent="StateMachine" unique_id=1967881485 node_paths=PackedStringArray("idle_state", "player", "interaction_manager", "anim_player")]
 script = ExtResource("9_5gtgg")
-default_blend_time = null
-rotation_speed = null
-walk_speed = null
-run_speed = null
-acceleration = null
-deceleration = null
-double_tap_window = null
+idle_state = NodePath("../Idle")
+player = NodePath("../..")
+interaction_manager = NodePath("../../InteractionManager")
+anim_player = NodePath("../../model/AnimationPlayer")
 metadata/_custom_type_script = "uid://c5sqmomp8vshr"
 
 [node name="InteractionManager" type="Area3D" parent="." unique_id=1731529725]
 collision_layer = 0
-collision_mask = 0
+collision_mask = 16
+monitorable = false
 script = ExtResource("10_h17s1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionManager" unique_id=485796232]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003326416, 1.3074021, -0.00030517578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003326416, 0.7783494, -0.00030517578)
 shape = SubResource("BoxShape3D_53kwp")
+
+[node name="InteractionUI" parent="." unique_id=2057352213 node_paths=PackedStringArray("manager") instance=ExtResource("11_je7p5")]
+manager = NodePath("../InteractionManager")
