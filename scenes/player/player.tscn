@@ -1,13 +1,15 @@
 [gd_scene format=4 uid="uid://cwwwgs1bgj6sk"]
 
-[ext_resource type="Script" uid="uid://xtlo20rt77gu" path="res://scripts/player.gd" id="1_gmlin"]
-[ext_resource type="Script" uid="uid://bbmywkfcwmg68" path="res://scripts/aiming_ray.gd" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://xtlo20rt77gu" path="res://scripts/player/player.gd" id="1_gmlin"]
+[ext_resource type="Script" uid="uid://bbmywkfcwmg68" path="res://scripts/player/aiming_ray.gd" id="2_dovo2"]
 [ext_resource type="Texture2D" uid="uid://c6if06ppg3ml1" path="res://assets/personagens/male_casual/personagem_man_tex.png" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://dywdapapk5xnn" path="res://scripts/state_machine/state_machine.gd" id="4_75vfm"]
 [ext_resource type="Script" uid="uid://bw8n11ed5vmgq" path="res://scripts/states/idle_state.gd" id="5_0owmy"]
 [ext_resource type="Script" uid="uid://liv6vbvvmecd" path="res://scripts/states/move_state.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://ds80s6yiqebvj" path="res://scripts/states/quick_turn_state.gd" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://b63dq3ufpw6ay" path="res://scripts/states/aim_state.gd" id="8_qek5x"]
+[ext_resource type="Script" uid="uid://c7xqyjslxnk4r" path="res://scripts/states/interact_state.gd" id="9_5gtgg"]
+[ext_resource type="Script" uid="uid://qropuoyvqwvx" path="res://scripts/interaction_manager.gd" id="10_h17s1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8afob"]
 radius = 0.28857422
@@ -1084,6 +1086,9 @@ _data = {
 &"walking_back": SubResource("Animation_d1ats")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_53kwp"]
+size = Vector3(2.0108032, 1, 2.0042725)
+
 [node name="Player" type="CharacterBody3D" unique_id=517306222]
 collision_layer = 2
 collision_mask = 13
@@ -1097,7 +1102,7 @@ shape = SubResource("CapsuleShape3D_8afob")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="rig" type="Node3D" parent="model" unique_id=751112088]
-transform = Transform3D(0.58618027, 0.041946232, -0.809094, -0.1078875, 0.9938059, -0.026641048, 0.8029649, 0.10290759, 0.58707505, -0.06658039, 0.028668517, -0.07915622)
+transform = Transform3D(0.5861802, 0.04194623, -0.809094, -0.10788749, 0.9938058, -0.026641048, 0.8029649, 0.10290758, 0.58707505, -0.06658039, 0.028668517, -0.07915622)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="model/rig" unique_id=297471949]
 bones/0/name = "pelvis"
@@ -1380,3 +1385,23 @@ player = NodePath("../..")
 anim_player = NodePath("../../model/AnimationPlayer")
 aiming_ray = NodePath("../../AimingRay")
 metadata/_custom_type_script = "uid://c5sqmomp8vshr"
+
+[node name="Interact" type="Node" parent="StateMachine" unique_id=1967881485]
+script = ExtResource("9_5gtgg")
+default_blend_time = null
+rotation_speed = null
+walk_speed = null
+run_speed = null
+acceleration = null
+deceleration = null
+double_tap_window = null
+metadata/_custom_type_script = "uid://c5sqmomp8vshr"
+
+[node name="InteractionManager" type="Area3D" parent="." unique_id=1731529725]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("10_h17s1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionManager" unique_id=485796232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003326416, 1.3074021, -0.00030517578)
+shape = SubResource("BoxShape3D_53kwp")

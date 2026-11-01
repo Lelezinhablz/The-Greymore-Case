@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bemtvdaopkweb"]
 
-[ext_resource type="Script" uid="uid://8ob77he0tcym" path="res://scripts/aim_target.gd" id="1_4cmic"]
+[ext_resource type="Script" uid="uid://8ob77he0tcym" path="res://scripts/player/aim_target.gd" id="1_4cmic"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_53kwp"]
 

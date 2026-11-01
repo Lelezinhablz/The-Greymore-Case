@@ -4,8 +4,8 @@ extends CanvasLayer
 @onready var item_name_label = $UI_Elements/CarouselItemInfo/ItemNameLabel
 @onready var item_desc_label = $UI_Elements/CarouselItemInfo/ItemDescriptionLabel
 @onready var item_mount = $UI_Elements/SubViewportContainer/SubViewport/ItemMount
-@onready var triangulo_branco = $TrianguloBranco
-@onready var triangulo_branco_2 = $TrianguloBranco2
+@onready var triangulo_branco = $UI_Elements/SubViewportContainer/TrianguloBranco
+@onready var triangulo_branco_2 = $UI_Elements/SubViewportContainer/TrianguloBranco2
 
 var current_3d_item = null
 var inventoryActive = false
@@ -85,14 +85,11 @@ func update_display():
 		current_3d_item.queue_free()
 		current_3d_item = null
 
-	var new_scene = load(item_data.scene_3d_path)
-	
-	if new_scene:
-		current_3d_item = new_scene.instantiate()
-
+	if item_data.scene_3d:
+		current_3d_item = item_data.scene_3d.instantiate()
 		item_mount.add_child(current_3d_item)
 	else:
-		print("ERRO: Não foi possível carregar a cena do item: ", item_data.scene_3d_path)
+		print("ERRO: Não foi possível carregar a cena do item: ", item_data.scene_3d)
 	
 
 	if PlayerStats.health >= 8:

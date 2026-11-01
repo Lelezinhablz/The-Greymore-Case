@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cwwwgs1bgj6sk" path="res://scenes/player/player.tscn" id="1_2l1u1"]
 [ext_resource type="PackedScene" uid="uid://dk870i51tsxec" path="res://scenes/player/re_camera.tscn" id="2_k6bee"]
-[ext_resource type="Script" uid="uid://8ob77he0tcym" path="res://scripts/aim_target.gd" id="3_4vvcl"]
+[ext_resource type="Script" uid="uid://8ob77he0tcym" path="res://scripts/player/aim_target.gd" id="3_4vvcl"]
+[ext_resource type="PackedScene" uid="uid://n6ib6w3d57c" path="res://scenes/Objects/flashlight.tscn" id="4_kqywr"]
 
 [sub_resource type="Environment" id="Environment_k6bee"]
 
@@ -153,6 +154,9 @@ metadata/_custom_type_script = "uid://8ob77he0tcym"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/AimTarget" unique_id=2073039559]
 shape = SubResource("SphereShape3D_53kwp")
+
+[node name="Flashlight" parent="." unique_id=1951229423 instance=ExtResource("4_kqywr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5647764, 0.54770863, -2.9121802)
 
 [editable path="ReCamera"]
 [editable path="ReCamera2"]

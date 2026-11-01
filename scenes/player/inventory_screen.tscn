@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bbrv863exrwa6"]
 
-[ext_resource type="Script" uid="uid://rm118hmy32nv" path="res://scripts/inventory_screen.gd" id="1_jhbmh"]
+[ext_resource type="Script" uid="uid://rm118hmy32nv" path="res://scripts/player/inventory_screen.gd" id="1_jhbmh"]
 [ext_resource type="FontFile" uid="uid://b1iaxwr4mkwa3" path="res://assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_0wfy1"]
 [ext_resource type="Texture2D" uid="uid://vyeolw0nb6ue" path="res://assets/Images/vida_machucada_sheet.png" id="2_iq51c"]
 [ext_resource type="Texture2D" uid="uid://0qqd0b6xkd8e" path="res://assets/Images/vida_ok_sheet.png" id="3_c8d3o"]
@@ -254,14 +254,11 @@ font_size = 35
 font = ExtResource("2_0wfy1")
 font_size = 27
 
-[sub_resource type="Environment" id="Environment_1r6y5"]
+[sub_resource type="Environment" id="Environment_8uc1f"]
 background_mode = 2
 
 [sub_resource type="World3D" id="World3D_qbhce"]
-environment = SubResource("Environment_1r6y5")
-
-[sub_resource type="Environment" id="Environment_8uc1f"]
-background_mode = 2
+environment = SubResource("Environment_8uc1f")
 
 [node name="InventoryScreen" type="CanvasLayer" unique_id=1347600611]
 process_mode = 3
@@ -313,6 +310,7 @@ text = "Mudar item: ⬅ ⮕    Sair: tab"
 label_settings = SubResource("LabelSettings_c8d3o")
 
 [node name="StatusBox" type="Panel" parent="UI_Elements" unique_id=1107843018]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -331,7 +329,6 @@ sprite_frames = SubResource("SpriteFrames_53kwp")
 animation = &"machucado"
 
 [node name="CarouselItemInfo" type="VBoxContainer" parent="UI_Elements" unique_id=3191038]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.032
@@ -381,16 +378,16 @@ transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 4
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="UI_Elements/SubViewportContainer" unique_id=245270325]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="UI_Elements/SubViewportContainer/SubViewport" unique_id=245270325]
 environment = SubResource("Environment_8uc1f")
 
-[node name="ItemCamera" type="Camera3D" parent="UI_Elements/SubViewportContainer" unique_id=677401030]
+[node name="Camera3D" type="Camera3D" parent="UI_Elements/SubViewportContainer/SubViewport" unique_id=1373617040]
 
-[node name="ItemMount" type="Node3D" parent="UI_Elements/SubViewportContainer" unique_id=884434056]
+[node name="ItemMount" type="Node3D" parent="UI_Elements/SubViewportContainer/SubViewport" unique_id=884434056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.03)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="UI_Elements/SubViewportContainer" unique_id=1120695019]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9)
+[node name="OmniLight3D" type="OmniLight3D" parent="UI_Elements/SubViewportContainer/SubViewport" unique_id=1120695019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.934)
 
 [node name="TrianguloBranco" type="Sprite2D" parent="UI_Elements/SubViewportContainer" unique_id=1913947676]
 position = Vector2(28.00003, 42.000008)
