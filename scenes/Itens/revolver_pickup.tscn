@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bk3pocs511kn2"]
+
+[ext_resource type="Script" uid="uid://dpghqepdci244" path="res://scripts/interaction/item_pickup.gd" id="1_mkefy"]
+[ext_resource type="PackedScene" uid="uid://d4j2o4t73rp3g" path="res://scenes/Itens/revolver_model.tscn" id="2_mkefy"]
+[ext_resource type="Resource" uid="uid://d1t4qr0gudp7r" path="res://Resource/revolver.tres" id="2_mnfy7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_abdjv"]
+size = Vector3(2.0119858, 1.652832, 2.000496)
+
+[node name="RevolverPickup" type="Area3D" unique_id=1566345421 groups=["Collectable"]]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("1_mkefy")
+item = ExtResource("2_mnfy7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=281028891]
+transform = Transform3D(0.9999872, 0, 0, 0, 1, 0, 0, 0, 0.9999872, -0.0029430077, 0.17159271, 0.09468403)
+shape = SubResource("BoxShape3D_abdjv")
+
+[node name="Revolver" parent="." unique_id=626187939 instance=ExtResource("2_mkefy")]

@@ -8,4 +8,5 @@ script = ExtResource("1_bjt1y")
 name = "Munição de pistola"
 description = "Munição 9mm"
 scene_3d = ExtResource("1_pufxk")
+type = 3
 metadata/_custom_type_script = "uid://cn2mwpmhiq62a"

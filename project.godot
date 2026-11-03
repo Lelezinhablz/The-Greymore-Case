@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="tcc"
+config/name="The Greymore Case"
 run/main_scene="uid://bpdoe4k0ap504"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
@@ -30,6 +30,7 @@ runtime/balloon_path="res://dialogues/balloon.tscn"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/initial_position_type=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

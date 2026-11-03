@@ -148,20 +148,18 @@ shape = SubResource("SphereShape3D_53kwp")
 [node name="itens" type="Node3D" parent="." unique_id=337647665]
 
 [node name="Flashlight" parent="itens" unique_id=741672454 instance=ExtResource("5_3dfk6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0267916, 0.9721947, -4.491539)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7319446, 0.9721947, -4.177412)
 collision_mask = 0
 monitoring = false
 
 [node name="CurePickup" parent="itens" unique_id=1566345421 instance=ExtResource("6_0kvq8")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 1.0025735, 1.2517786, -4.3543844)
-visible = false
 collision_layer = 16
 collision_mask = 0
 monitoring = false
 
 [node name="falar" type="Area3D" parent="." unique_id=1582875134]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0710106, 0.91934264, -4.512509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0710106, 0.91934264, -1.9175289)
 collision_layer = 16
 collision_mask = 0
 monitoring = false

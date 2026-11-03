@@ -2,20 +2,22 @@ extends Node
 
 
 var items: Array[ItemResource] = []
-
+var equipped_item: ItemResource = null
 var current_index: int = 0
 
+signal equipped_changed
 signal inventory_changed
-#
-#func _ready():
-	#Dialogic.signal_event.connect(_on_dialogic_signal)
-	#var item_inicial = load("res://Resource/flashlight.tres") #("res://Resource/flashlight.tres")
 
-	#if item_inicial:
-		#add_item(item_inicial)
-		#print("Item inicial adicionado: ", item_inicial.name)
-	#else:
-		#print("ERRO: Não achei o item inicial no caminho especificado!")
+
+func _ready():
+	#Dialogic.signal_event.connect(_on_dialogic_signal)
+	var item_inicial = load("res://Resource/revolver.tres") #("res://Resource/flashlight.tres")
+
+	if item_inicial:
+		add_item(item_inicial)
+		print("Item inicial adicionado: ", item_inicial.name)
+	else:
+		print("ERRO: Não achei o item inicial no caminho especificado!")
 
 func _on_dialogic_signal(argumento: String):
 	if argumento == "entregar_dinheiro":
@@ -27,8 +29,36 @@ func _on_dialogic_signal(argumento: String):
 			print("Dinheiro adicionado com sucesso!")
 		else:
 			print("ERRO: Arquivo do item de dinheiro não encontrado.")
-			
 
+func is_equipped(item: ItemResource) -> bool:
+	return item != null and equipped_item == item
+
+func get_equip_kind() -> ItemResource.EquipKind:
+	if equipped_item == null:
+		return ItemResource.EquipKind.NONE
+	return equipped_item.equip_kind
+
+func has_ranged_weapon_equipped() -> bool:
+	return get_equip_kind() == ItemResource.EquipKind.WEAPON_RANGED
+
+func has_melee_weapon_equipped() -> bool:
+	return get_equip_kind() == ItemResource.EquipKind.WEAPON_MELEE
+
+func has_light_equipped() -> bool:
+	return get_equip_kind() == ItemResource.EquipKind.LIGHT
+
+func toggle_equip(item: ItemResource) -> void:
+	if item.type != ItemResource.Type.EQUIPMENT:
+		return
+	equipped_item = null if is_equipped(item) else item
+	equipped_changed.emit()
+
+func use_item(item: ItemResource) -> bool:
+	if item.type != ItemResource.Type.CONSUMABLE:
+		return false
+	PlayerStats.heal(item.heal_amount)
+	remove_item(item)
+	return true
 
 func has_item(item_procurado: Resource) -> bool:
 	if item_procurado == null: 
@@ -46,7 +76,6 @@ func has_item(item_procurado: Resource) -> bool:
 				return true
 				
 	return false
-
 
 func add_item(item_resource: ItemResource):
 	items.append(item_resource)
@@ -84,6 +113,9 @@ func remove_item(item_procurado: Resource):
 			break
 	
 	if index_encontrado != -1:
+		if equipped_item == items[index_encontrado]:
+			equipped_item = null
+			equipped_changed.emit()
 		items.remove_at(index_encontrado)
 		
 		if items.is_empty():

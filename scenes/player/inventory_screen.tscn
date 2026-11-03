@@ -393,19 +393,6 @@ offset_bottom = -245.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="EquipadoAtual" type="Label" parent="UI_Elements/VBoxContainer" unique_id=1620519801]
-layout_mode = 2
-text = "Item equipado atualmente:"
-label_settings = SubResource("LabelSettings_l7gae")
-horizontal_alignment = 1
-autowrap_mode = 3
-autowrap_trim_flags = 128
-
-[node name="HSeparator" type="HSeparator" parent="UI_Elements/VBoxContainer" unique_id=203080858]
-layout_mode = 2
-theme_override_constants/separation = 5
-theme_override_styles/separator = SubResource("StyleBoxEmpty_l7gae")
-
 [node name="EquipedItem" type="Label" parent="UI_Elements/VBoxContainer" unique_id=816519859]
 layout_mode = 2
 text = "Machado"

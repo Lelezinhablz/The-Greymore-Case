@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cn2mwpmhiq62a" path="res://scripts/globals/ItemResource.gd" id="1_1uyx1"]
 [ext_resource type="PackedScene" uid="uid://bhqacvxavl1cu" path="res://scenes/Itens/flashlight_model.tscn" id="1_n05oi"]
+[ext_resource type="PackedScene" uid="uid://dqv6pnd7x42j1" path="res://scenes/Itens/flashlight_equip.tscn" id="1_spr3d"]
 
 [resource]
 script = ExtResource("1_1uyx1")
 name = "Lanterna"
 description = "A lanterna que sempre deixo no meu carro"
 scene_3d = ExtResource("1_n05oi")
+type = 2
+equip_scene = ExtResource("1_spr3d")
+equip_kind = 1
 metadata/_custom_type_script = "uid://cn2mwpmhiq62a"

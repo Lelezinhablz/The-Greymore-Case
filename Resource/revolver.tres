@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://d1t4qr0gudp7r"]
+
+[ext_resource type="PackedScene" uid="uid://0awuo00ycaep" path="res://scenes/Itens/revolver_equip.tscn" id="1_t8c32"]
+[ext_resource type="PackedScene" uid="uid://d4j2o4t73rp3g" path="res://scenes/Itens/revolver_model.tscn" id="2_t8c32"]
+[ext_resource type="Script" uid="uid://cn2mwpmhiq62a" path="res://scripts/globals/ItemResource.gd" id="3_8y2p5"]
+
+[resource]
+script = ExtResource("3_8y2p5")
+name = "Revolver"
+description = "Minha boa e velha amiga"
+scene_3d = ExtResource("2_t8c32")
+type = 2
+equip_scene = ExtResource("1_t8c32")
+equip_kind = 2
+metadata/_custom_type_script = "uid://cn2mwpmhiq62a"

@@ -6,7 +6,8 @@ extends CanvasLayer
 @onready var item_mount = $UI_Elements/SubViewportContainer/SubViewport/ItemMount
 @onready var triangulo_branco = $UI_Elements/SubViewportContainer/TrianguloBranco
 @onready var triangulo_branco_2 = $UI_Elements/SubViewportContainer/TrianguloBranco2
-@onready var equiped_item: Label = $UI_Elements/VBoxContainer/EquipedItem
+@onready var equipped_label: Label = $UI_Elements/VBoxContainer/EquipedItem
+@onready var action_hint: Label = $UI_Elements/CarouselItemInfo2/Comandos
 
 @export var spin_speed: float = 0.5
 
@@ -24,7 +25,8 @@ func _ready():
 		pos_inicial_t2 = triangulo_branco_2.position
 	
 	InventoryManager.inventory_changed.connect(update_display)
-	
+	InventoryManager.equipped_changed.connect(update_equipped_marker)
+	PlayerStats.health_changed.connect(update_life)
 	update_display()
 
 func _input(event):
@@ -53,6 +55,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory()
 
+	if Input.is_action_just_pressed("ui_accept"):
+		_primary_action()
+	
 	if visible:
 		inventoryActive = true
 		
@@ -67,7 +72,30 @@ func _process(delta):
 	else:
 		inventoryActive = false
 
+func update_equipped_marker() -> void:
+	var item = InventoryManager.get_current_item()
+	equipped_label.visible = InventoryManager.is_equipped(item)
+	if item == null:
+		action_hint.text = ""
+	else:
+		match item.type:
+			ItemResource.Type.CONSUMABLE: action_hint.text = "[U] Usar"
+			ItemResource.Type.EQUIPMENT:
+				action_hint.text = "[X] Desequipar" if InventoryManager.is_equipped(item) else "[E] Equipar"
+			_: action_hint.text = ""
 
+func update_life() -> void:
+	if PlayerStats.health >= 8: life_indicator.play("ok")
+	elif PlayerStats.health >= 4: life_indicator.play("machucado")
+	else: life_indicator.play("perigo")
+
+func _primary_action() -> void:
+	var item = InventoryManager.get_current_item()
+	if item == null:
+		return
+	match item.type:
+		ItemResource.Type.CONSUMABLE: InventoryManager.use_item(item)
+		ItemResource.Type.EQUIPMENT: InventoryManager.toggle_equip(item)
 
 func update_display():
 	
@@ -80,6 +108,8 @@ func update_display():
 		if current_3d_item:
 			current_3d_item.queue_free()
 			current_3d_item = null
+			update_equipped_marker()
+			update_life()
 		return
 
 
@@ -105,7 +135,8 @@ func update_display():
 		life_indicator.play("machucado")
 	else:
 		life_indicator.play("perigo")
-	
+	update_equipped_marker()
+	update_life()
 
 func toggle_inventory():
 	visible = not visible

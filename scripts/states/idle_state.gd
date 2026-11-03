@@ -24,7 +24,7 @@ func physics_update(_delta: float) -> void:
 		switch_state.emit(interact_state)
 		return
 	
-	if Input.is_action_pressed("aim"):
+	if Input.is_action_pressed("aim") and InventoryManager.has_ranged_weapon_equipped():
 		switch_state.emit(aim_state)
 		return
 		
