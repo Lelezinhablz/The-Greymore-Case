@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://w5iu7td7omby"]
+
+[ext_resource type="Script" uid="uid://bq37mhthohlbs" path="res://scripts/projectile.gd" id="1_kajsi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fm80t"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tk644"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_53kwp"]
+material = SubResource("StandardMaterial3D_tk644")
+size = Vector3(0.01, 0.01, 0.01)
+
+[node name="Projectile" type="Area3D" unique_id=2136628601]
+collision_layer = 32
+collision_mask = 9
+script = ExtResource("1_kajsi")
+damage = 30
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1511562608]
+shape = SubResource("BoxShape3D_fm80t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=504989432]
+mesh = SubResource("BoxMesh_53kwp")

@@ -3,14 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://dk870i51tsxec" path="res://scenes/player/re_camera.tscn" id="1_ihl1i"]
 [ext_resource type="Texture2D" uid="uid://b64xs08bb1hqi" path="res://assets/Images/sky.jpg" id="1_udi83"]
 [ext_resource type="PackedScene" uid="uid://cwwwgs1bgj6sk" path="res://scenes/player/player.tscn" id="2_udi83"]
-[ext_resource type="Script" uid="uid://8ob77he0tcym" path="res://scripts/player/aim_target.gd" id="3_3dfk6"]
 [ext_resource type="PackedScene" uid="uid://cys4ti7ux3d8x" path="res://scenes/Itens/flashlight_pickup.tscn" id="5_3dfk6"]
 [ext_resource type="PackedScene" uid="uid://bvrojd4c0cayy" path="res://scenes/Itens/cure_pickup.tscn" id="6_0kvq8"]
 [ext_resource type="Script" uid="uid://b10eatxywoqqv" path="res://scripts/interaction/dialogue_interactable.gd" id="7_hqg7e"]
 [ext_resource type="Resource" uid="uid://cc86entqvq1r5" path="res://dialogues/test.dialogue" id="8_8io75"]
+[ext_resource type="PackedScene" uid="uid://rdmpa7xqub7s" path="res://scenes/enemy/enemy.tscn" id="8_wvm45"]
+[ext_resource type="PackedScene" uid="uid://fl8mcc6abr13" path="res://scenes/player/hud.tscn" id="9_wvm45"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3dfk6"]
 panorama = ExtResource("1_udi83")
+energy_multiplier = 0.21
 
 [sub_resource type="Sky" id="Sky_udi83"]
 sky_material = SubResource("PanoramaSkyMaterial_3dfk6")
@@ -19,8 +21,7 @@ sky_material = SubResource("PanoramaSkyMaterial_3dfk6")
 background_mode = 2
 sky = SubResource("Sky_udi83")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4vvcl"]
-size = Vector3(3.6433105, 1, 2.777832)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kbvwf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqg7e"]
 albedo_color = Color(0.091013975, 0.20189211, 0.020639453, 1)
@@ -48,11 +49,6 @@ points = PackedVector3Array(-0.5, -2.673767, -8.2246475, 0.5, -2.673767, -8.2246
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_psku3"]
 points = PackedVector3Array(-0.5, -2.673767, -8.2246475, 0.5, -2.673767, -8.2246475, -0.5, -2.673767, 8.2246475, -0.5, 2.673767, -8.2246475, 0.5, 2.673767, -8.2246475, 0.5, -2.673767, 8.2246475, -0.5, 2.673767, 8.2246475, 0.5, 2.673767, 8.2246475)
 
-[sub_resource type="SphereMesh" id="SphereMesh_tk644"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_53kwp"]
-radius = 0.85057926
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvm45"]
 albedo_color = Color(0.654902, 0, 0, 1)
 
@@ -67,13 +63,13 @@ size = Vector3(1.3134155, 1.6157837, 1.4083204)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1076755775]
 transform = Transform3D(1, 0, 0, 0, 0.034442697, 0.9994067, 0, -0.9994067, 0.034442693, 1.2310438, 18.39211, -1.3144832)
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1796704273]
 environment = SubResource("Environment_ihl1i")
 
 [node name="ReCamera" parent="." unique_id=1567000545 instance=ExtResource("1_ihl1i")]
-transform = Transform3D(-4.245336e-08, -0.2381854, 0.9712197, -1.0411415e-08, 0.9712197, 0.2381854, -1, 0, -4.371139e-08, 7.1857533, 2.018373, -5.2353926)
-visible = false
+transform = Transform3D(-4.245336e-08, -0.2381854, 0.9712197, -1.0411415e-08, 0.9712197, 0.2381854, -1, 0, -4.371139e-08, 9.32221, 2.5826957, -5.2353926)
 follow_player = true
 
 [node name="Trigger" parent="ReCamera" index="0" unique_id=1894283272]
@@ -81,7 +77,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.85
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ReCamera/Trigger" index="0" unique_id=603628169]
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
-shape = SubResource("BoxShape3D_4vvcl")
+shape = SubResource("BoxShape3D_kbvwf")
 
 [node name="meshes" type="Node3D" parent="." unique_id=1663477988]
 
@@ -132,19 +128,6 @@ mesh = SubResource("BoxMesh_tk644")
 [node name="Player" parent="." unique_id=517306222 instance=ExtResource("2_udi83")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5.084298, 0, -6.1775823)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=170231892]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5.2139745, 1.9583368, 1.3311477)
-mesh = SubResource("SphereMesh_tk644")
-
-[node name="AimTarget" type="Area3D" parent="MeshInstance3D" unique_id=854389719 groups=["aim_targets"]]
-collision_layer = 8
-collision_mask = 3
-script = ExtResource("3_3dfk6")
-metadata/_custom_type_script = "uid://8ob77he0tcym"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/AimTarget" unique_id=2073039559]
-shape = SubResource("SphereShape3D_53kwp")
-
 [node name="itens" type="Node3D" parent="." unique_id=337647665]
 
 [node name="Flashlight" parent="itens" unique_id=741672454 instance=ExtResource("5_3dfk6")]
@@ -174,5 +157,14 @@ mesh = SubResource("BoxMesh_8io75")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033599854, -0.13101196, -0.036072254)
 shape = SubResource("BoxShape3D_71yop")
 debug_color = Color(0.9343123, 0.23511404, 0.27600113, 0.41960785)
+
+[node name="Enemy" parent="." unique_id=814411145 instance=ExtResource("8_wvm45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8704636, 1.1776876, 0)
+detection_range = 1.0
+hop_speed = 2.0
+jump_velocity = 2.0
+turn_speed = 4.0
+
+[node name="HUD" parent="." unique_id=182942375 instance=ExtResource("9_wvm45")]
 
 [editable path="ReCamera"]

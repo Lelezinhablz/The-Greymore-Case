@@ -5,7 +5,11 @@
 [node name="FlashlightEquip" type="Node3D" unique_id=1614514070]
 
 [node name="Flashlight" parent="." unique_id=1951229423 instance=ExtResource("1_o1qfu")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.060836002, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.0036173388, 0.14054462)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1740121066]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.060836002, -0.2541948)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -6.268892e-09, 0, 0.14670777)
+light_energy = 2.0
+light_size = 1.0
+spot_range = 15.435
+spot_angle = 65.66

@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://xtlo20rt77gu" path="res://scripts/player/player.gd" id="1_gmlin"]
 [ext_resource type="Script" uid="uid://bbmywkfcwmg68" path="res://scripts/player/aiming_ray.gd" id="2_dovo2"]
 [ext_resource type="Texture2D" uid="uid://c6if06ppg3ml1" path="res://assets/personagens/male_casual/personagem_man_tex.png" id="2_gmlin"]
-[ext_resource type="Script" uid="uid://mwsisugokno" path="res://scenes/player/equipment_holder.gd" id="3_fm80t"]
+[ext_resource type="Script" uid="uid://mwsisugokno" path="res://scripts/equipment_holder.gd" id="3_fm80t"]
 [ext_resource type="Script" uid="uid://dywdapapk5xnn" path="res://scripts/state_machine/state_machine.gd" id="4_75vfm"]
 [ext_resource type="Script" uid="uid://bw8n11ed5vmgq" path="res://scripts/states/idle_state.gd" id="5_0owmy"]
 [ext_resource type="Script" uid="uid://liv6vbvvmecd" path="res://scripts/states/move_state.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://ds80s6yiqebvj" path="res://scripts/states/quick_turn_state.gd" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://b63dq3ufpw6ay" path="res://scripts/states/aim_state.gd" id="8_qek5x"]
 [ext_resource type="Script" uid="uid://c7xqyjslxnk4r" path="res://scripts/states/interact_state.gd" id="9_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://w5iu7td7omby" path="res://scenes/player/combat/projectile.tscn" id="10_gx1jg"]
 [ext_resource type="Script" uid="uid://qropuoyvqwvx" path="res://scripts/interaction/interaction_manager.gd" id="10_h17s1"]
 [ext_resource type="PackedScene" uid="uid://cp785o270f8y5" path="res://scenes/player/interaction_ui.tscn" id="11_je7p5"]
 
@@ -1091,7 +1092,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_53kwp"]
 size = Vector3(1.7107697, 2.0581055, 0.9484253)
 
-[node name="Player" type="CharacterBody3D" unique_id=517306222]
+[node name="Player" type="CharacterBody3D" unique_id=517306222 groups=["Player", "player"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_gmlin")
@@ -1126,7 +1127,7 @@ bones/2/parent = 1
 bones/2/rest = Transform3D(1, 3.56888e-08, -2.3561971e-07, -3.5265302e-10, 0.988943, 0.14829631, 2.3830698e-07, -0.14829631, 0.988943, -9.458745e-10, 0.19924828, 3.2843673e-08)
 bones/2/enabled = true
 bones/2/position = Vector3(-9.458745e-10, 0.19924828, 3.2843673e-08)
-bones/2/rotation = Quaternion(-0.04328128, -0.028415235, 0.004228008, 0.99864984)
+bones/2/rotation = Quaternion(-0.07435398, -1.1881056e-07, -9.035374e-09, 0.9972319)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "neck"
 bones/3/parent = 2
@@ -1338,12 +1339,22 @@ skin = SubResource("Skin_cqfbp")
 skeleton = NodePath("..")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="model/rig/Skeleton3D" unique_id=345424631]
-transform = Transform3D(0.75323635, 0.36153725, -0.5494773, 0.2582409, -0.9308617, -0.25847197, -0.60493463, 0.052792996, -0.7945228, -0.16663805, 0.8791948, 0.09772418)
+transform = Transform3D(0.71967554, 0.35639483, -0.5958601, 0.21157014, -0.9299581, -0.3006917, -0.66128993, 0.09033428, -0.74467087, -0.16349792, 0.88773847, 0.12694319)
 bone_name = "thumb.02.R"
 bone_idx = 20
 
 [node name="EquipmentHolder" type="Node3D" parent="model/rig/Skeleton3D/BoneAttachment3D" unique_id=1326328752]
 script = ExtResource("3_fm80t")
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="model/rig/Skeleton3D" unique_id=1192978091]
+transform = Transform3D(0.999591, -0.0021218196, -0.028518561, 0.004067848, 0.9976528, 0.068353534, 0.028306594, -0.06844158, 0.9972534, -0.0012607543, 1.2038791, 0.0010400135)
+bone_name = "chest"
+bone_idx = 2
+
+[node name="EquipmentHolder" type="Node3D" parent="model/rig/Skeleton3D/BoneAttachment3D2" unique_id=1186975931]
+transform = Transform3D(1, 4.656613e-10, 0, -4.656613e-10, 1, 0, 0, 1.4901161e-08, 1, -0.095298834, 0.104608655, 0.016343683)
+script = ExtResource("3_fm80t")
+slot = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="model" unique_id=999832186]
 libraries/ = SubResource("AnimationLibrary_14euo")
@@ -1389,11 +1400,13 @@ idle_state = NodePath("../Idle")
 anim_player = NodePath("../../model/AnimationPlayer")
 metadata/_custom_type_script = "uid://c5sqmomp8vshr"
 
-[node name="Aim" type="Node" parent="StateMachine" unique_id=1496695190 node_paths=PackedStringArray("idle_state", "move_state", "player", "anim_player", "aiming_ray")]
+[node name="Aim" type="Node" parent="StateMachine" unique_id=1496695190 node_paths=PackedStringArray("idle_state", "move_state", "player", "equipment_holder", "anim_player", "aiming_ray")]
 script = ExtResource("8_qek5x")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
 player = NodePath("../..")
+equipment_holder = NodePath("../../model/rig/Skeleton3D/BoneAttachment3D/EquipmentHolder")
+projectile_scene = ExtResource("10_gx1jg")
 anim_player = NodePath("../../model/AnimationPlayer")
 aiming_ray = NodePath("../../AimingRay")
 metadata/_custom_type_script = "uid://c5sqmomp8vshr"

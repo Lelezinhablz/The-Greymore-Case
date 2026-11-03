@@ -7,17 +7,45 @@ var current_index: int = 0
 
 signal equipped_changed
 signal inventory_changed
+var equipped: Dictionary = {}   # EquipSlot -> ItemResource
 
 
 func _ready():
 	#Dialogic.signal_event.connect(_on_dialogic_signal)
 	var item_inicial = load("res://Resource/revolver.tres") #("res://Resource/flashlight.tres")
+	var lanterna = load("res://Resource/flashlight.tres") #("res://Resource/flashlight.tres")
+
 
 	if item_inicial:
 		add_item(item_inicial)
+		add_item(lanterna)
 		print("Item inicial adicionado: ", item_inicial.name)
 	else:
 		print("ERRO: Não achei o item inicial no caminho especificado!")
+
+
+func is_equipped(item: ItemResource) -> bool:
+	return item != null and equipped.get(item.equip_slot) == item
+
+func get_equipped(slot: ItemResource.EquipSlot) -> ItemResource:
+	return equipped.get(slot)
+
+func toggle_equip(item: ItemResource) -> void:
+	if item.type != ItemResource.Type.EQUIPMENT:
+		return
+	if is_equipped(item):
+		equipped.erase(item.equip_slot)
+	else:
+		equipped[item.equip_slot] = item
+	equipped_changed.emit()
+
+func has_ranged_weapon_equipped() -> bool:
+	var w = get_equipped(ItemResource.EquipSlot.HAND)
+	return w != null and w.equip_kind == ItemResource.EquipKind.WEAPON_RANGED
+
+func has_light_equipped() -> bool:
+	var l = get_equipped(ItemResource.EquipSlot.CHEST)
+	return l != null and l.equip_kind == ItemResource.EquipKind.LIGHT
 
 func _on_dialogic_signal(argumento: String):
 	if argumento == "entregar_dinheiro":
@@ -30,28 +58,13 @@ func _on_dialogic_signal(argumento: String):
 		else:
 			print("ERRO: Arquivo do item de dinheiro não encontrado.")
 
-func is_equipped(item: ItemResource) -> bool:
-	return item != null and equipped_item == item
-
 func get_equip_kind() -> ItemResource.EquipKind:
 	if equipped_item == null:
 		return ItemResource.EquipKind.NONE
 	return equipped_item.equip_kind
 
-func has_ranged_weapon_equipped() -> bool:
-	return get_equip_kind() == ItemResource.EquipKind.WEAPON_RANGED
-
 func has_melee_weapon_equipped() -> bool:
 	return get_equip_kind() == ItemResource.EquipKind.WEAPON_MELEE
-
-func has_light_equipped() -> bool:
-	return get_equip_kind() == ItemResource.EquipKind.LIGHT
-
-func toggle_equip(item: ItemResource) -> void:
-	if item.type != ItemResource.Type.EQUIPMENT:
-		return
-	equipped_item = null if is_equipped(item) else item
-	equipped_changed.emit()
 
 func use_item(item: ItemResource) -> bool:
 	if item.type != ItemResource.Type.CONSUMABLE:

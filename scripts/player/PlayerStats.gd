@@ -1,11 +1,20 @@
 # PlayerStats.gd
 extends Node
 
-var max_health: int = 10
-var health: int = 10
+var max_health: int = 100
+var health: int = 100
 var status: String = "Ok"
 
 signal health_changed
+signal died
+
+func take_damage(amount: int) -> void:
+
+	health = max(health - amount, 0)
+	health_changed.emit()
+	print(health)
+	if health <= 0:
+		died.emit()
 
 func heal(amount: int) -> void:
 	health = min(health + amount, max_health)

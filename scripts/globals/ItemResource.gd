@@ -15,6 +15,8 @@ enum Type { KEY, CONSUMABLE, EQUIPMENT, AMMO }
 
 @export_group("Equipamento")
 enum EquipKind { NONE, LIGHT, WEAPON_RANGED, WEAPON_MELEE }
+enum EquipSlot { HAND, CHEST }
 
+@export var equip_slot: EquipSlot = EquipSlot.HAND
 @export var equip_scene: PackedScene
 @export var equip_kind: EquipKind = EquipKind.NONE

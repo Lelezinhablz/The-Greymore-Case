@@ -262,6 +262,7 @@ environment = SubResource("Environment_8uc1f")
 
 [node name="InventoryScreen" type="CanvasLayer" unique_id=1347600611]
 process_mode = 3
+layer = 10
 script = ExtResource("1_jhbmh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1921540010]

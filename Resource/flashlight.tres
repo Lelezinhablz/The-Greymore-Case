@@ -10,6 +10,7 @@ name = "Lanterna"
 description = "A lanterna que sempre deixo no meu carro"
 scene_3d = ExtResource("1_n05oi")
 type = 2
+equip_slot = 1
 equip_scene = ExtResource("1_spr3d")
 equip_kind = 1
 metadata/_custom_type_script = "uid://cn2mwpmhiq62a"

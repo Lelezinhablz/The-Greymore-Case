@@ -85,8 +85,8 @@ func update_equipped_marker() -> void:
 			_: action_hint.text = ""
 
 func update_life() -> void:
-	if PlayerStats.health >= 8: life_indicator.play("ok")
-	elif PlayerStats.health >= 4: life_indicator.play("machucado")
+	if PlayerStats.health >= 80: life_indicator.play("ok")
+	elif PlayerStats.health >= 40: life_indicator.play("machucado")
 	else: life_indicator.play("perigo")
 
 func _primary_action() -> void:

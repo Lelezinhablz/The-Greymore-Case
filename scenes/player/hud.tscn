@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://fl8mcc6abr13"]
+
+[ext_resource type="Script" uid="uid://uky2twtjb3m6" path="res://scripts/hud.gd" id="1_5bwha"]
+[ext_resource type="FontFile" uid="uid://b1iaxwr4mkwa3" path="res://assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="1_qpsba"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_53kwp"]
+font = ExtResource("1_qpsba")
+font_size = 40
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=182942375]
+script = ExtResource("1_5bwha")
+
+[node name="HealthLabel" type="Label" parent="." unique_id=231309933]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "oie"
+label_settings = SubResource("LabelSettings_53kwp")

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://rdmpa7xqub7s"]
+
+[ext_resource type="Script" uid="uid://buo1jfld7fba7" path="res://scripts/enemy/enemy.gd" id="1_40wdo"]
+[ext_resource type="Script" uid="uid://hfiylteykgxo" path="res://scripts/health_component.gd" id="1_a3pup"]
+[ext_resource type="Script" uid="uid://8ob77he0tcym" path="res://scripts/player/aim_target.gd" id="2_40wdo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_53kwp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goqap"]
+albedo_color = Color(0.62352943, 0.95686275, 0.34509805, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tk644"]
+material = SubResource("StandardMaterial3D_goqap")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gx1jg"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tk644"]
+size = Vector3(1.1667709, 1.1525879, 1.1200562)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=814411145]
+collision_layer = 8
+script = ExtResource("1_40wdo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=292040024]
+shape = SubResource("BoxShape3D_53kwp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=62050309]
+mesh = SubResource("BoxMesh_tk644")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1232339721]
+script = ExtResource("1_a3pup")
+max_health = 80
+metadata/_custom_type_script = "uid://hfiylteykgxo"
+
+[node name="AimTarget" type="Area3D" parent="." unique_id=109931356 node_paths=PackedStringArray("health_component") groups=["aim_targets"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("2_40wdo")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://8ob77he0tcym"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AimTarget" unique_id=598566609]
+shape = SubResource("BoxShape3D_gx1jg")
+
+[node name="AttackArea" type="Area3D" parent="." unique_id=1401923489]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea" unique_id=1674913635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01039505, 0.003540039, 0.003326416)
+shape = SubResource("BoxShape3D_tk644")
