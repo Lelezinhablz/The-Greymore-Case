@@ -1,11 +1,46 @@
 ~ start
-Velho: Olá, forasteiro.
-Velho: Não é todo dia que vejo alguém por aqui.
-- Quem é você?
-	Velho: Ninguém importante.
+- KIERAN: Detetive Kieran Williams, quem fala? => continua
+- KIERAN: Alô, com quem falo? => continua
+- KIERAN: ... => continua
+
+#(no lugar do nome de quem está do outro lado da linha consta ”???”) 
+~ continua
+ANNE: Oi Kieran, é a Anne
+#(uma animação remove o shader e revela o retrato de Anne Solomon) 
+#(o nome de Anne Solomon agora consta disposto na interface) 
+#(decidir animação que insere a fala de Anne na interface baseado nas possibilidades do Dialogic ou noq a Lenore conseguir trabalhar/achar que tem como fazer) 
+ANNE: Liguei para saber como estão as coisas...
+- Olá Anne, nada fora do normal.
+	ANNE: O delegado me contou. Disse que você vai se encontrar com um psiquiatra e retorna ao departamento em alguns meses.  
+	ANNE: Você vai, certo? => continua1
+- Algo entre frustrantes e entediantes
+	ANNE: Talvez seja uma boa ideia entrar em contato com o psiquiatra. 
+	ANNE: Você vai, certo? => continua1
+- Como ficou sabendo? 
+	ANNE: O delegado me contou. Disse que você vai se encontrar com um psiquiatra e retorna ao departamento em alguns meses.  
+	ANNE: Você vai, certo? => continua1
+~ continua1
+- Ainda estou considerando. 
+	ANNE: Você sabe que devia ir. 
+	ANNE: Mesmo que não sirva de nada precisamos de você aqui no Departamento, e esse é o único jeito. 
+	- Tenho coisas mais importantes no momento.
+- Não me adiantaria de nada.
+	ANNE: Você sabe que devia ir. 
+	ANNE: Mesmo que não sirva de nada precisamos de você aqui no Departamento, e esse é o único jeito. 
+	- Tenho coisas mais importantes no momento.
+- Tenho coisas mais importantes no momento.
+ANNE: Coisas mais importantes?  
+ANNE: O que tá acontecendo Kieran? 
+- Você sabe bem que eu não sou nenhum louco, tem algo errado acontecendo.
+- O delegado não enxerga, mas eu sim. Não vou ficar parado.
+ANNE: Você ainda tá trabalhando no caso? Kieran você tá afastado e assim você vai perder sua licença de vez! 
+- Que diferença faria? Resolveria o caso e não receberia reconhecimento como sempre foi.
+	ANNE: Perderia o salário e esse teto sobre sua cabeça, essa é a diferença. 
+	- Que seja, preciso agir ou só haverá mais vítimas. O delegado pensa que estou louco e que o caso já está encerrado. 
+	ANNE: Não vejo outra opção Williams, desculpe... 
+	ANNE: E mesmo que você esteja certo, sabe que não posso arriscar meu trabalho. 
+	ANNE: Preciso dele para cuidar da minha mãe. 
 	=> END
-- Tem algo para me contar?
-	Velho: Cuidado com o porão.
-	=> END
-- Nada, tchau.
+- Se eu não agir o caso vai ser arquivado e haverá mais vítimas, é o que acha certo Anne?
+	ANNE: O que eu acho certo sequer está em jogo aqui. 
 	=> END

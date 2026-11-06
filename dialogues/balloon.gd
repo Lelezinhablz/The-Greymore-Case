@@ -1,6 +1,13 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+@onready var portrait: TextureRect = %Portrait
+
+var portraits := {
+	"ANNE": preload("res://assets/portraits/anna.png"),
+	"KIERAN": preload("res://assets/portraits/kieran.png"),
+	"???": preload("res://assets/portraits/interrogacao.png"),
+}
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -121,6 +128,12 @@ func start(with_dialogue_resource: DialogueResource = null, cue: String = "", ex
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(start_from_cue, temporary_game_states)
 	show()
 
+func _get_portrait(line: DialogueLine) -> Texture2D:
+	var expr := line.get_tag_value("expr") if line.has_tag("expr") else ""
+	# versão simples: usa a primeira tag como expressão
+	var expression := line.tags[0] if line.tags.size() > 0 else "normal"
+	var path := "res://portraits/%s_%s.png" % [line.character.to_lower(), expression]
+	return load(path) if ResourceLoader.exists(path) else null
 
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
@@ -133,6 +146,9 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
+
+	portrait.texture = portraits.get(dialogue_line.character, null)
+	portrait.visible = portrait.texture != null
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line

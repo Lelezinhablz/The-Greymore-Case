@@ -375,8 +375,8 @@ grow_vertical = 2
 
 [node name="Comandos" type="Label" parent="UI_Elements/CarouselItemInfo2" unique_id=2089623174]
 layout_mode = 2
-text = "[E] Para equipar
-[U] Para usar"
+text = "[Enter] Para equipar
+"
 label_settings = SubResource("LabelSettings_l7gae")
 autowrap_mode = 3
 
@@ -395,8 +395,8 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="EquipedItem" type="Label" parent="UI_Elements/VBoxContainer" unique_id=816519859]
+visible = false
 layout_mode = 2
-text = "Machado"
 label_settings = SubResource("LabelSettings_l7gae")
 horizontal_alignment = 1
 autowrap_mode = 3

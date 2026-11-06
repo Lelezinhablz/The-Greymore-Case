@@ -81,7 +81,7 @@ func update_equipped_marker() -> void:
 		match item.type:
 			ItemResource.Type.CONSUMABLE: action_hint.text = "[U] Usar"
 			ItemResource.Type.EQUIPMENT:
-				action_hint.text = "[X] Desequipar" if InventoryManager.is_equipped(item) else "[E] Equipar"
+				action_hint.text = "[Enter] Desequipar" if InventoryManager.is_equipped(item) else "[Enter] Equipar"
 			_: action_hint.text = ""
 
 func update_life() -> void:

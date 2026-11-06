@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://cp785o270f8y5"]
 
 [ext_resource type="Script" uid="uid://wmmsm6fuhy0c" path="res://scripts/player/interaction_ui.gd" id="1_hiox2"]
+[ext_resource type="FontFile" uid="uid://b1iaxwr4mkwa3" path="res://assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_gjli8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eopv6"]
+font = ExtResource("2_gjli8")
+
+[sub_resource type="Theme" id="Theme_cwjcg"]
+default_font = ExtResource("2_gjli8")
+default_font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_45nqp"]
+font = ExtResource("2_gjli8")
 
 [node name="InteractionUI" type="CanvasLayer" unique_id=2057352213]
 script = ExtResource("1_hiox2")
@@ -26,6 +37,7 @@ offset_top = -23.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+label_settings = SubResource("LabelSettings_eopv6")
 
 [node name="MenuBox" type="HBoxContainer" parent="Control" unique_id=1878214508]
 visible = false
@@ -41,9 +53,9 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_cwjcg")
 
 [node name="MessageLabel" type="Label" parent="Control" unique_id=1351530779]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -55,3 +67,4 @@ offset_top = -23.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+label_settings = SubResource("LabelSettings_45nqp")
