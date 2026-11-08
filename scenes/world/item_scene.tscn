@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b64xs08bb1hqi" path="res://assets/Images/sky.jpg" id="1_udi83"]
 [ext_resource type="PackedScene" uid="uid://cwwwgs1bgj6sk" path="res://scenes/player/player.tscn" id="2_udi83"]
 [ext_resource type="PackedScene" uid="uid://bvrojd4c0cayy" path="res://scenes/Itens/cure_pickup.tscn" id="6_0kvq8"]
+[ext_resource type="Resource" uid="uid://dath6r7imd1h" path="res://dialogues/ligacao.dialogue" id="6_8io75"]
 [ext_resource type="Script" uid="uid://b10eatxywoqqv" path="res://scripts/interaction/dialogue_interactable.gd" id="7_hqg7e"]
-[ext_resource type="Resource" uid="uid://cc86entqvq1r5" path="res://dialogues/test.dialogue" id="8_8io75"]
 [ext_resource type="PackedScene" uid="uid://rdmpa7xqub7s" path="res://scenes/enemy/enemy.tscn" id="8_wvm45"]
 [ext_resource type="PackedScene" uid="uid://fl8mcc6abr13" path="res://scenes/player/hud.tscn" id="9_wvm45"]
 
@@ -53,7 +53,7 @@ albedo_color = Color(0.654902, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8io75"]
 material = SubResource("StandardMaterial3D_wvm45")
-size = Vector3(0.44281006, 2.5331726, 0.4761963)
+size = Vector3(0.44281006, 1.6632004, 0.4761963)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_71yop"]
 size = Vector3(1.3134155, 1.6157837, 1.4083204)
@@ -141,10 +141,10 @@ collision_layer = 16
 collision_mask = 0
 monitoring = false
 script = ExtResource("7_hqg7e")
-dialogue_resource = ExtResource("8_8io75")
+dialogue_resource = ExtResource("6_8io75")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="falar" unique_id=1789818742]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03720236, -0.050715923, -0.035755634)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03720236, -0.19470167, -0.035755634)
 mesh = SubResource("BoxMesh_8io75")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="falar" unique_id=368950027]

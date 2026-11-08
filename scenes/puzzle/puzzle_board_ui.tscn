@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://c6avw8l2r1mn3"]
+
+[ext_resource type="Script" uid="uid://cp58vskij0lv0" path="res://scripts/puzzle/puzzle_board_ui.gd" id="1_oy71i"]
+[ext_resource type="FontFile" uid="uid://b1iaxwr4mkwa3" path="res://assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_h4jl1"]
+[ext_resource type="FontFile" uid="uid://bph8ijxjc8xus" path="res://assets/Fonts/DTM-Sans.otf" id="3_inc2r"]
+[ext_resource type="Script" uid="uid://benpfnqtaiuvp" path="res://scripts/puzzle/clue_slot.gd" id="4_h4jl1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_53kwp"]
+font = ExtResource("2_h4jl1")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_tk644"]
+font = ExtResource("3_inc2r")
+font_size = 20
+
+[node name="PuzzleBoardUI" type="CanvasLayer" unique_id=1915797437]
+process_mode = 3
+layer = 20
+script = ExtResource("1_oy71i")
+
+[node name="Root" type="Control" parent="." unique_id=1396855134]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Dim" type="ColorRect" parent="Root" unique_id=991144879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6901961)
+
+[node name="Margin" type="MarginContainer" parent="Root" unique_id=986780418]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBox" type="HBoxContainer" parent="Root/Margin" unique_id=1529058198]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Board" type="Panel" parent="Root/Margin/HBox" unique_id=1278745299]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Title" type="Label" parent="Root/Margin/HBox/Board" unique_id=1879221114]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 56.0
+offset_bottom = 35.0
+text = "Caso 01 - A noite do crime"
+label_settings = SubResource("LabelSettings_53kwp")
+
+[node name="Pin1" type="Label" parent="Root/Margin/HBox/Board" unique_id=1338150743]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 90.0
+offset_right = 80.0
+offset_bottom = 113.0
+text = "                       (FOTO)
+Porta dos fundos entreaberta"
+label_settings = SubResource("LabelSettings_tk644")
+
+[node name="Pin2" type="Label" parent="Root/Margin/HBox/Board" unique_id=670973648]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 69.0
+offset_right = 796.0
+offset_bottom = 122.0
+text = "(BILHETE)
+Saí às 22h"
+label_settings = SubResource("LabelSettings_tk644")
+
+[node name="Line2D" type="Line2D" parent="Root/Margin/HBox/Board" unique_id=639199945]
+position = Vector2(186, 88)
+points = PackedVector2Array(-2, -6, 362, -21)
+width = 3.0
+round_precision = 3
+
+[node name="Slots" type="Control" parent="Root/Margin/HBox/Board" unique_id=1005344999]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SlotQuem" type="PanelContainer" parent="Root/Margin/HBox/Board/Slots" unique_id=1942519151]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 378.0
+offset_right = 220.0
+offset_bottom = 418.0
+script = ExtResource("4_h4jl1")
+slot_name = "quem"
+expected_id = "mordomo_porta"
+empty_text = "Quem saiu?"
+
+[node name="SlotProva" type="PanelContainer" parent="Root/Margin/HBox/Board/Slots" unique_id=845767930]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 453.0
+offset_right = 410.0
+offset_bottom = 493.0
+script = ExtResource("4_h4jl1")
+slot_name = "prova"
+expected_kind = "item"
+expected_id = "Foto Rasgada"
+empty_text = "Prova?"
+
+[node name="Side" type="PanelContainer" parent="Root/Margin" unique_id=1826964925]
+visible = false
+layout_mode = 2
+
+[node name="Tabs" type="TabContainer" parent="Root/Margin/Side" unique_id=523445076]
+layout_mode = 2
+current_tab = 1
+
+[node name="Notas" type="ScrollContainer" parent="Root/Margin/Side/Tabs" unique_id=839230059]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 0
+
+[node name="NotesList" type="VBoxContainer" parent="Root/Margin/Side/Tabs/Notas" unique_id=1992774334]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Itens" type="ScrollContainer" parent="Root/Margin/Side/Tabs" unique_id=1179935529]
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 1
+
+[node name="ItensList" type="VBoxContainer" parent="Root/Margin/Side/Tabs/Itens" unique_id=427665319]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="Label" parent="Root" unique_id=867440565]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Root" unique_id=681818337]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+text = "Fechar"

@@ -1,7 +1,8 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
-
+var _prev_mouse_mode: Input.MouseMode = Input.mouse_mode
 @onready var portrait: TextureRect = %Portrait
+var _clicked_clue := false
 
 var portraits := {
 	"ANNE": preload("res://assets/portraits/anna.png"),
@@ -93,9 +94,16 @@ func _ready() -> void:
 		if not is_instance_valid(dialogue_resource):
 			assert(false, DMConstants.get_error_message(DMConstants.ERR_MISSING_RESOURCE_FOR_AUTOSTART))
 		start()
+	dialogue_label.meta_clicked.connect(_on_clue_clicked)
 
+func _exit_tree() -> void:
+	Input.mouse_mode = _prev_mouse_mode
 
-
+func _on_clue_clicked(meta: Variant) -> void:
+	_clicked_clue = true
+	get_viewport().set_input_as_handled()            # o clique não avança o diálogo
+	NotebookManager.collect_clue(str(meta))
+	
 func _process(_delta: float) -> void:
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
@@ -119,6 +127,8 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(with_dialogue_resource: DialogueResource = null, cue: String = "", extra_game_states: Array = []) -> void:
+	_prev_mouse_mode = Input.mouse_mode
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE    
 	temporary_game_states = [self] + extra_game_states
 	is_waiting_for_input = false
 	if is_instance_valid(with_dialogue_resource):
@@ -206,6 +216,7 @@ func _on_mutated(mutation: Dictionary) -> void:
 
 
 func _on_balloon_gui_input(event: InputEvent) -> void:
+	if _clicked_clue: _clicked_clue = false; return
 	# See if we need to skip typing of the dialogue
 	if dialogue_label.is_typing:
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()

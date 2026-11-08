@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dath6r7imd1h"
+path="res://.godot/imported/ligacao.dialogue-53612e12d535f1a7e21999d201856d11.tres"
+
+[deps]
+
+source_file="res://dialogues/ligacao.dialogue"
+dest_files=["res://.godot/imported/ligacao.dialogue-53612e12d535f1a7e21999d201856d11.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://rdw2ppse8hcq"]
+
+[ext_resource type="Script" uid="uid://4lny3nntisuw" path="res://scripts/puzzle/puzzle_interactable.gd" id="1_vt5vw"]
+[ext_resource type="PackedScene" uid="uid://c6avw8l2r1mn3" path="res://scenes/puzzle/puzzle_board_ui.tscn" id="2_2faft"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tk644"]
+albedo_color = Color(8.531176e-06, 0.36355025, 0.06369718, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_53kwp"]
+material = SubResource("StandardMaterial3D_tk644")
+size = Vector3(1.6859741, 1, 0.07589722)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tk644"]
+size = Vector3(2.01503, 1, 1.2526245)
+
+[node name="Quadro" type="Area3D" unique_id=1803549538]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_vt5vw")
+ui_scene = ExtResource("2_2faft")
+prompt_text = "Examinar quadro"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1789501536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01889038, 0, -0.01020813)
+mesh = SubResource("BoxMesh_53kwp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1639490554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0022964478, 0, 0.03225708)
+shape = SubResource("BoxShape3D_tk644")
