@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dk870i51tsxec" path="res://scenes/player/re_camera.tscn" id="1_ihl1i"]
 [ext_resource type="Texture2D" uid="uid://b64xs08bb1hqi" path="res://assets/Images/sky.jpg" id="1_udi83"]
 [ext_resource type="PackedScene" uid="uid://cwwwgs1bgj6sk" path="res://scenes/player/player.tscn" id="2_udi83"]
-[ext_resource type="PackedScene" uid="uid://bvrojd4c0cayy" path="res://scenes/Itens/cure_pickup.tscn" id="6_0kvq8"]
 [ext_resource type="Resource" uid="uid://dath6r7imd1h" path="res://dialogues/ligacao.dialogue" id="6_8io75"]
 [ext_resource type="Script" uid="uid://b10eatxywoqqv" path="res://scripts/interaction/dialogue_interactable.gd" id="7_hqg7e"]
+[ext_resource type="PackedScene" uid="uid://rdw2ppse8hcq" path="res://scenes/puzzle/quadro.tscn" id="8_8io75"]
 [ext_resource type="PackedScene" uid="uid://rdmpa7xqub7s" path="res://scenes/enemy/enemy.tscn" id="8_wvm45"]
 [ext_resource type="PackedScene" uid="uid://fl8mcc6abr13" path="res://scenes/player/hud.tscn" id="9_wvm45"]
 
@@ -129,12 +129,6 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5.08
 
 [node name="itens" type="Node3D" parent="." unique_id=337647665]
 
-[node name="CurePickup" parent="itens" unique_id=1566345421 instance=ExtResource("6_0kvq8")]
-transform = Transform3D(1.49, 0, 0, 0, 1.49, 0, 0, 0, 1.49, 4.952915, 0.97668946, -4.1801987)
-collision_layer = 16
-collision_mask = 0
-monitoring = false
-
 [node name="falar" type="Area3D" parent="." unique_id=1582875134]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0710106, 0.91934264, -1.9175289)
 collision_layer = 16
@@ -159,5 +153,8 @@ jump_velocity = 2.0
 turn_speed = 4.0
 
 [node name="HUD" parent="." unique_id=182942375 instance=ExtResource("9_wvm45")]
+
+[node name="Quadro" parent="." unique_id=1803549538 instance=ExtResource("8_8io75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3892422, 1, -2.1411033)
 
 [editable path="ReCamera"]
