@@ -17,21 +17,19 @@ const CLUES := {
 	},
 }
 
+var ui_open := false                # true enquanto quadro/tabuleta estiver aberto (bloqueia o inventário)
 var collected: Array[String] = []   # ids, na ordem em que foram coletados
 var _state: Dictionary = {}         # puzzle_id -> { chave: valor }
 var _solved: Dictionary = {}        # puzzle_id -> true
 
 func collect_clue(id: String) -> bool:
-	print("1")
 	if not CLUES.has(id):
 		push_warning("Pista desconhecida: " + id)
-		print("2")
 		return false
 	if collected.has(id):
-		print("3")
 		return false
-	print("4")
 	collected.append(id)
+	print("[Notebook] pista coletada: ", id)
 	clue_added.emit(id)
 	return true
 
@@ -56,3 +54,14 @@ func mark_solved(puzzle_id: String) -> void:
 
 func is_solved(puzzle_id: String) -> bool:
 	return _solved.get(puzzle_id, false)
+
+# ---------- ATALHOS DE TESTE (só em debug) - remova depois ----------
+# F1 = coleta "mordomo_porta" | F2 = coleta "carro_preto"
+func _unhandled_input(event: InputEvent) -> void:
+	if not OS.is_debug_build():
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_F1:
+			collect_clue("mordomo_porta")
+		elif event.keycode == KEY_F2:
+			collect_clue("carro_preto")

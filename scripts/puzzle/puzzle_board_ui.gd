@@ -19,9 +19,11 @@ var _prev_mouse_mode: Input.MouseMode = Input.MOUSE_MODE_CAPTURED
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	_prev_mouse_mode = Input.mouse_mode
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	get_tree().paused = true
+	# Se faltar algum nó, avisa e se destrói SEM pausar o jogo (evita travar o player)
+	if not (slots_root and notes_list and items_list and message and close_button):
+		push_error("PuzzleBoardUI: faltam nós com Unique Name (%Slots, %NotesList, %ItemsList, %Message, %CloseButton).")
+		queue_free()
+		return
 
 	close_button.pressed.connect(close)
 	NotebookManager.clue_added.connect(_refresh_lists)
@@ -40,6 +42,12 @@ func _ready() -> void:
 
 	_refresh_lists()
 	message.text = solved_text if NotebookManager.is_solved(puzzle_id) else ""
+
+	# Só pausa e libera o mouse no FIM, depois de tudo ter dado certo
+	_prev_mouse_mode = Input.mouse_mode
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().paused = true
+	NotebookManager.ui_open = true
 
 func _refresh_lists(_arg = null) -> void:
 	for c in notes_list.get_children():
@@ -81,6 +89,15 @@ func _solve() -> void:
 
 func _say(text: String) -> void:
 	message.text = text
+
+func _exit_tree() -> void:
+	NotebookManager.ui_open = false
+
+# Atalho de segurança: a tecla de interação (E) também fecha o quadro
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		get_viewport().set_input_as_handled()
+		close()
 
 func close() -> void:
 	get_tree().paused = false

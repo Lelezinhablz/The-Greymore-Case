@@ -2,7 +2,6 @@ extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 var _prev_mouse_mode: Input.MouseMode = Input.mouse_mode
 @onready var portrait: TextureRect = %Portrait
-var _clicked_clue := false
 
 var portraits := {
 	"ANNE": preload("res://assets/portraits/anna.png"),
@@ -83,6 +82,12 @@ func _ready() -> void:
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
+	# --- pistas clicáveis ---
+	# O label NÃO pode roubar o foco do teclado (senão o balão para de avançar com Enter)
+	dialogue_label.focus_mode = Control.FOCUS_NONE
+	dialogue_label.meta_underlined = true
+	dialogue_label.meta_clicked.connect(_on_clue_clicked)
+
 	# If the responses menu doesn't have a next action set, use this one
 	if responses_menu.next_action.is_empty():
 		responses_menu.next_action = next_action
@@ -94,22 +99,31 @@ func _ready() -> void:
 		if not is_instance_valid(dialogue_resource):
 			assert(false, DMConstants.get_error_message(DMConstants.ERR_MISSING_RESOURCE_FOR_AUTOSTART))
 		start()
-	dialogue_label.meta_clicked.connect(_on_clue_clicked)
+
 
 func _exit_tree() -> void:
 	Input.mouse_mode = _prev_mouse_mode
 
+
 func _on_clue_clicked(meta: Variant) -> void:
-	_clicked_clue = true
-	get_viewport().set_input_as_handled()            # o clique não avança o diálogo
+	get_viewport().set_input_as_handled()   # o clique não avança o diálogo
 	NotebookManager.collect_clue(str(meta))
-	
+	balloon.grab_focus.call_deferred()      # garante que o teclado continue avançando
+
+
 func _process(_delta: float) -> void:
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
 
 
-func _unhandled_input(_event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	# Rede de segurança: se o foco estiver em outro controle, a tecla de avançar ainda funciona
+	if is_waiting_for_input and is_instance_valid(dialogue_line) \
+			and dialogue_line.responses.size() == 0 and event.is_action_pressed(next_action):
+		get_viewport().set_input_as_handled()
+		next(dialogue_line.next_id)
+		return
+
 	# Only the balloon is allowed to handle input while it's showing
 	if will_block_other_input:
 		get_viewport().set_input_as_handled()
@@ -128,7 +142,7 @@ func _notification(what: int) -> void:
 ## Start some dialogue
 func start(with_dialogue_resource: DialogueResource = null, cue: String = "", extra_game_states: Array = []) -> void:
 	_prev_mouse_mode = Input.mouse_mode
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE    
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	temporary_game_states = [self] + extra_game_states
 	is_waiting_for_input = false
 	if is_instance_valid(with_dialogue_resource):
@@ -216,7 +230,11 @@ func _on_mutated(mutation: Dictionary) -> void:
 
 
 func _on_balloon_gui_input(event: InputEvent) -> void:
-	if _clicked_clue: _clicked_clue = false; return
+	# Linha com pista: o mouse não avança nem pula a digitação, só clica na pista.
+	if event is InputEventMouseButton and is_instance_valid(dialogue_line) \
+			and "[url=" in dialogue_line.text:
+		return
+
 	# See if we need to skip typing of the dialogue
 	if dialogue_label.is_typing:
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()

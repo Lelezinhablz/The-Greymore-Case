@@ -21,9 +21,10 @@ var _prev_mouse_mode: Input.MouseMode = Input.MOUSE_MODE_CAPTURED
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	_prev_mouse_mode = Input.mouse_mode
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	get_tree().paused = true
+	if not (keyhole and slots_root and items_list and message and close_button):
+		push_error("ThreeFacesUI: faltam nós com Unique Name (%Keyhole, %Slots, %ItemsList, %Message, %CloseButton).")
+		queue_free()
+		return
 
 	close_button.pressed.connect(close)
 	InventoryManager.inventory_changed.connect(_refresh_items)
@@ -36,8 +37,19 @@ func _ready() -> void:
 			_slots[slot.slot_name] = slot
 			slot.head_changed.connect(_on_head_changed)
 
+	if not (_slots.has("mid_left") and _slots.has("mid_right")):
+		push_error("ThreeFacesUI: faltam HeadSlots com slot_name 'mid_left' e 'mid_right'.")
+		queue_free()
+		return
+
 	_restore()
 	_refresh_items()
+
+	# Só pausa e libera o mouse no FIM, depois de tudo ter dado certo
+	_prev_mouse_mode = Input.mouse_mode
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().paused = true
+	NotebookManager.ui_open = true
 
 func _restore() -> void:
 	_set_locked(true)   # cabeças presas até usar a chave
@@ -102,6 +114,15 @@ func _refresh_items(_arg = null) -> void:
 
 func _say(text: String) -> void:
 	message.text = text
+
+func _exit_tree() -> void:
+	NotebookManager.ui_open = false
+
+# Atalho de segurança: a tecla de interação (E) também fecha a tabuleta
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		get_viewport().set_input_as_handled()
+		close()
 
 func close() -> void:
 	get_tree().paused = false

@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bxef01t8hxsbm"]
+
+[ext_resource type="Script" uid="uid://cutpe7neme3sj" path="res://scripts/puzzle/three_faces_ui.gd" id="1_c2hn8"]
+[ext_resource type="Script" uid="uid://dxxo4440avmq6" path="res://scripts/head_slot.gd" id="2_dfcc7"]
+[ext_resource type="Script" uid="uid://cvs20qe0fm1l7" path="res://scripts/puzzle/keyhole.gd" id="3_dfcc7"]
+
+[node name="ThreeFacesUI" type="CanvasLayer" unique_id=1260822115]
+process_mode = 3
+layer = 20
+script = ExtResource("1_c2hn8")
+
+[node name="Root" type="Control" parent="." unique_id=1836926875]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="Root" unique_id=750078872]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6901961)
+
+[node name="Tablet" type="Panel" parent="Root" unique_id=411098708]
+custom_minimum_size = Vector2(760, 260)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slots" type="Control" parent="Root/Tablet" unique_id=759745406]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="OuterLeft" type="PanelContainer" parent="Root/Tablet/Slots" unique_id=1206969855]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 60.0
+offset_right = 70.0
+offset_bottom = 100.0
+script = ExtResource("2_dfcc7")
+slot_name = "outer_left"
+head_id = "sadica"
+
+[node name="OuterRight" type="PanelContainer" parent="Root/Tablet/Slots" unique_id=827815804]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 60.0
+offset_right = 630.0
+offset_bottom = 100.0
+script = ExtResource("2_dfcc7")
+slot_name = "outer_right"
+head_id = "triste"
+
+[node name="MidLeft" type="PanelContainer" parent="Root/Tablet/Slots" unique_id=1622533854]
+visible = false
+layout_mode = 0
+offset_left = 230.0
+offset_top = 60.0
+offset_right = 270.0
+offset_bottom = 100.0
+script = ExtResource("2_dfcc7")
+
+[node name="MidRight" type="PanelContainer" parent="Root/Tablet/Slots" unique_id=343759132]
+visible = false
+layout_mode = 0
+offset_left = 390.0
+offset_top = 60.0
+offset_right = 430.0
+offset_bottom = 100.0
+script = ExtResource("2_dfcc7")
+
+[node name="Keyhole" type="PanelContainer" parent="Root/Tablet" unique_id=1351660775]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 280.0
+offset_top = 30.0
+offset_right = 320.0
+offset_bottom = 70.0
+script = ExtResource("3_dfcc7")
+
+[node name="ItemsPanel" type="PanelContainer" parent="Root" unique_id=2128187735]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Scroll" type="HScrollBar" parent="Root/ItemsPanel" unique_id=692143461]
+layout_mode = 2
+
+[node name="ItemsList" type="HBoxContainer" parent="Root/ItemsPanel/Scroll" unique_id=1319304139]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Message" type="Label" parent="Root" unique_id=314432440]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Root" unique_id=1782946277]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Fechar"

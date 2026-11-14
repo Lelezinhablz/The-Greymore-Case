@@ -126,8 +126,9 @@ expected_id = "Foto Rasgada"
 empty_text = "Prova?"
 
 [node name="Side" type="PanelContainer" parent="Root/Margin" unique_id=1826964925]
-visible = false
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
+size_flags_horizontal = 8
 
 [node name="Tabs" type="TabContainer" parent="Root/Margin/Side" unique_id=523445076]
 layout_mode = 2

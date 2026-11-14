@@ -52,10 +52,10 @@ func _process(delta):
 		
 		triangulo_branco_2.position.x = pos_inicial_t2.x + sin((tempo + -1.5) * -4.0) * 7.0
 
-	if Input.is_action_just_pressed("inventory"):
+	if Input.is_action_just_pressed("inventory") and (visible or _can_open_inventory()):
 		toggle_inventory()
 
-	if Input.is_action_just_pressed("ui_accept"):
+	if visible and Input.is_action_just_pressed("ui_accept"):
 		_primary_action()
 	
 	if visible:
@@ -96,6 +96,14 @@ func _primary_action() -> void:
 	match item.type:
 		ItemResource.Type.CONSUMABLE: InventoryManager.use_item(item)
 		ItemResource.Type.EQUIPMENT: InventoryManager.toggle_equip(item)
+
+func _can_open_inventory() -> bool:
+	if NotebookManager.ui_open:
+		return false
+	var p := get_tree().get_first_node_in_group("player") as Player
+	if p and p.state_machine.active_state is InteractState:
+		return false   # menu de interação / diálogo / puzzle
+	return true
 
 func update_display():
 	

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://2dvngar0kw0i"]
 
-[ext_resource type="Script" uid="uid://f1erns47kbij" path="res://dialogues/balloon.gd" id="1_36de5"]
+[ext_resource type="Script" uid="uid://bqxm4q72qm63k" path="res://dialogues/balloon_corrigido.gd" id="1_pa16h"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Resource" uid="uid://cc86entqvq1r5" path="res://dialogues/test.dialogue" id="2_ooonl"]
 [ext_resource type="FontFile" uid="uid://b1iaxwr4mkwa3" path="res://assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_pa16h"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.gd" id="3_72ixx"]
 
@@ -116,7 +117,8 @@ _data = {
 
 [node name="ExampleBalloon" type="CanvasLayer" unique_id=38036521]
 layer = 100
-script = ExtResource("1_36de5")
+script = ExtResource("1_pa16h")
+dialogue_resource = ExtResource("2_ooonl")
 
 [node name="Balloon" type="Control" parent="." unique_id=154399927]
 unique_name_in_owner = true
