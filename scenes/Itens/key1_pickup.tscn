@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bbpeud3wkyl4t"]
+
+[ext_resource type="Script" uid="uid://dpghqepdci244" path="res://scripts/interaction/item_pickup.gd" id="1_mawri"]
+[ext_resource type="Resource" uid="uid://e6xgloe5qth6" path="res://Resource/flashlight.tres" id="2_cxtx7"]
+[ext_resource type="PackedScene" uid="uid://dxjiwd8pg11qo" path="res://scenes/Itens/key1_model.tscn" id="3_mawri"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_53kwp"]
+size = Vector3(0.81739044, 1, 0.9701558)
+
+[node name="Flashlight" type="Area3D" unique_id=741672454 groups=["Collectable"]]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_mawri")
+item = ExtResource("2_cxtx7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=908849693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011530042, 0, 0.031838447)
+shape = SubResource("BoxShape3D_53kwp")
+
+[node name="Key1" parent="." unique_id=1951229423 instance=ExtResource("3_mawri")]

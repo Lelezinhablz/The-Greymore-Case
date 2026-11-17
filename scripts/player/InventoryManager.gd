@@ -14,11 +14,12 @@ func _ready():
 	#Dialogic.signal_event.connect(_on_dialogic_signal)
 	var item_inicial = load("res://Resource/revolver.tres") #("res://Resource/flashlight.tres")
 	var lanterna = load("res://Resource/flashlight.tres") #("res://Resource/flashlight.tres")
-
+	var chavededo = load("res://Resource/chavededo.tres")
 
 	if item_inicial:
 		add_item(item_inicial)
 		add_item(lanterna)
+		add_item(chavededo)
 		print("Item inicial adicionado: ", item_inicial.name)
 	else:
 		print("ERRO: Não achei o item inicial no caminho especificado!")

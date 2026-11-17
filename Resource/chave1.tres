@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://b4nigv7l6fvh4"]
+
+[ext_resource type="PackedScene" uid="uid://dxjiwd8pg11qo" path="res://scenes/Itens/key1_model.tscn" id="1_ij2qx"]
+[ext_resource type="Script" uid="uid://cn2mwpmhiq62a" path="res://scripts/globals/ItemResource.gd" id="2_hau65"]
+
+[resource]
+script = ExtResource("2_hau65")
+name = "Chave1"
+description = "Tem um chaveiro com um 1 escrito."
+scene_3d = ExtResource("1_ij2qx")
+metadata/_custom_type_script = "uid://cn2mwpmhiq62a"

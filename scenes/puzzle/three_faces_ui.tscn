@@ -1,13 +1,23 @@
 [gd_scene format=3 uid="uid://bxef01t8hxsbm"]
 
 [ext_resource type="Script" uid="uid://cutpe7neme3sj" path="res://scripts/puzzle/three_faces_ui.gd" id="1_c2hn8"]
+[ext_resource type="Resource" uid="uid://b4nigv7l6fvh4" path="res://Resource/chave1.tres" id="2_51i6t"]
 [ext_resource type="Script" uid="uid://dxxo4440avmq6" path="res://scripts/head_slot.gd" id="2_dfcc7"]
 [ext_resource type="Script" uid="uid://cvs20qe0fm1l7" path="res://scripts/puzzle/keyhole.gd" id="3_dfcc7"]
+[ext_resource type="Texture2D" uid="uid://cca81jfjady1y" path="res://assets/puzzle/happyface3.png" id="4_qkr13"]
+[ext_resource type="Texture2D" uid="uid://bcq3s14p2tq2m" path="res://assets/puzzle/sadface.png" id="5_ewovl"]
+[ext_resource type="Texture2D" uid="uid://b38jh4k0fc6gw" path="res://assets/puzzle/neutralface.png" id="5_lvpuh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvpuh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ewovl"]
+load_path = "res://.godot/imported/sadface.png-b8f7e920eb3603d6739820691d451b6c.ctex"
 
 [node name="ThreeFacesUI" type="CanvasLayer" unique_id=1260822115]
 process_mode = 3
 layer = 20
 script = ExtResource("1_c2hn8")
+reward_item = ExtResource("2_51i6t")
 
 [node name="Root" type="Control" parent="." unique_id=1836926875]
 layout_mode = 3
@@ -40,6 +50,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lvpuh")
 
 [node name="Slots" type="Control" parent="Root/Tablet" unique_id=759745406]
 unique_name_in_owner = true
@@ -60,6 +71,10 @@ offset_bottom = 100.0
 script = ExtResource("2_dfcc7")
 slot_name = "outer_left"
 head_id = "sadica"
+head_textures = {
+"sadica": ExtResource("4_qkr13"),
+"triste": SubResource("CompressedTexture2D_ewovl")
+}
 
 [node name="OuterRight" type="PanelContainer" parent="Root/Tablet/Slots" unique_id=827815804]
 layout_mode = 0
@@ -70,6 +85,10 @@ offset_bottom = 100.0
 script = ExtResource("2_dfcc7")
 slot_name = "outer_right"
 head_id = "triste"
+head_textures = {
+"sadica": ExtResource("4_qkr13"),
+"triste": SubResource("CompressedTexture2D_ewovl")
+}
 
 [node name="MidLeft" type="PanelContainer" parent="Root/Tablet/Slots" unique_id=1622533854]
 visible = false
@@ -79,6 +98,12 @@ offset_top = 60.0
 offset_right = 270.0
 offset_bottom = 100.0
 script = ExtResource("2_dfcc7")
+slot_name = "mid_left"
+head_id = "mid_left"
+head_textures = {
+"sadica": ExtResource("4_qkr13"),
+"triste": ExtResource("5_ewovl")
+}
 
 [node name="MidRight" type="PanelContainer" parent="Root/Tablet/Slots" unique_id=343759132]
 visible = false
@@ -88,6 +113,12 @@ offset_top = 60.0
 offset_right = 430.0
 offset_bottom = 100.0
 script = ExtResource("2_dfcc7")
+slot_name = "mid_right"
+head_id = "mid_right"
+head_textures = {
+"sadica": ExtResource("4_qkr13"),
+"triste": SubResource("CompressedTexture2D_ewovl")
+}
 
 [node name="Keyhole" type="PanelContainer" parent="Root/Tablet" unique_id=1351660775]
 unique_name_in_owner = true
@@ -97,6 +128,7 @@ offset_top = 30.0
 offset_right = 320.0
 offset_bottom = 70.0
 script = ExtResource("3_dfcc7")
+face_texture = ExtResource("5_lvpuh")
 
 [node name="ItemsPanel" type="PanelContainer" parent="Root" unique_id=2128187735]
 layout_mode = 1
@@ -104,7 +136,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -8.0
+offset_top = -187.0
 grow_horizontal = 2
 grow_vertical = 0
 
